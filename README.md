@@ -7,7 +7,7 @@ A mobile application for one or two players of 10 pin bowling to track their sco
 - [About](#about)
 - [Quick Start](#quick-start)
 - [Features](#features)
-- [Copyright & License](#copyright-&-license)
+- [Copyright & License](#copyright--license)
 
 ## About
 
