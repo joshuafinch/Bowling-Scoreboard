@@ -19,16 +19,17 @@ If attempting to run this code on future versions of Swift, Xcode, or iOS some a
 
 The following steps will guide you through the process of running this application on your local machine, and device.
 
-1. Ensure you have Xcode 9.4.1 installed
-2. Checkout this repository
-3. Open `BowlingScoreboard.xcodeproj` with Xcode
-4. Go to the project settings, and change the code signing team to your own
+1. Ensure you have [Xcode 9.4.1](https://developer.apple.com/download/) installed
+2. Ensure you have [SwiftLint](https://github.com/realm/SwiftLint) installed
+3. Checkout this repository
+4. Open `BowlingScoreboard.xcodeproj` with Xcode
+5. Go to the project settings, and change the code signing team to your own
 
 Code signing settings are left at automatic here for simplicity, you can set these to manual if needed but these steps will not take you through that process.
 
-5. Attach an iPhone running iOS 11.4.1
-6. Ensure the iPhone has development mode enabled, from the Devices & Simulators window: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>2</kbd>
-7. Clean, build and run the application on an iPhone running iOS 11.4.1
+6. Attach an iPhone running iOS 11.4.1
+7. Ensure the iPhone has development mode enabled, from the Devices & Simulators window: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>2</kbd>
+8. Clean, build and run the application on an iPhone running iOS 11.4.1
 
 ## Features
 

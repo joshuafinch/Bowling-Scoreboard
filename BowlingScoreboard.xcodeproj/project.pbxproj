@@ -13,8 +13,6 @@
 		12E929C92136CE9D00B04385 /* BowlingScoreboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12E929C72136CE9D00B04385 /* BowlingScoreboard.xcdatamodeld */; };
 		12E929CB2136CE9F00B04385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E929CA2136CE9F00B04385 /* Assets.xcassets */; };
 		12E929CE2136CE9F00B04385 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12E929CC2136CE9F00B04385 /* LaunchScreen.storyboard */; };
-		12E929D92136CE9F00B04385 /* BowlingScoreboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E929D82136CE9F00B04385 /* BowlingScoreboardTests.swift */; };
-		12E929E42136CE9F00B04385 /* BowlingScoreboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E929E32136CE9F00B04385 /* BowlingScoreboardUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12C034F62136DDE400EE22BB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		12C034F72136DDE400EE22BB /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		12E929BD2136CE9D00B04385 /* BowlingScoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E929C02136CE9D00B04385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12E929C22136CE9D00B04385 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,10 +44,8 @@
 		12E929CD2136CE9F00B04385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12E929CF2136CE9F00B04385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12E929D42136CE9F00B04385 /* BowlingScoreboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BowlingScoreboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		12E929D82136CE9F00B04385 /* BowlingScoreboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingScoreboardTests.swift; sourceTree = "<group>"; };
 		12E929DA2136CE9F00B04385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12E929DF2136CE9F00B04385 /* BowlingScoreboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BowlingScoreboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		12E929E32136CE9F00B04385 /* BowlingScoreboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingScoreboardUITests.swift; sourceTree = "<group>"; };
 		12E929E52136CE9F00B04385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +77,8 @@
 		12E929B42136CE9D00B04385 = {
 			isa = PBXGroup;
 			children = (
+				12C034F62136DDE400EE22BB /* README.md */,
+				12C034F72136DDE400EE22BB /* LICENSE.md */,
 				12E929BF2136CE9D00B04385 /* BowlingScoreboard */,
 				12E929D72136CE9F00B04385 /* BowlingScoreboardTests */,
 				12E929E22136CE9F00B04385 /* BowlingScoreboardUITests */,
@@ -113,7 +113,6 @@
 		12E929D72136CE9F00B04385 /* BowlingScoreboardTests */ = {
 			isa = PBXGroup;
 			children = (
-				12E929D82136CE9F00B04385 /* BowlingScoreboardTests.swift */,
 				12E929DA2136CE9F00B04385 /* Info.plist */,
 			);
 			path = BowlingScoreboardTests;
@@ -122,7 +121,6 @@
 		12E929E22136CE9F00B04385 /* BowlingScoreboardUITests */ = {
 			isa = PBXGroup;
 			children = (
-				12E929E32136CE9F00B04385 /* BowlingScoreboardUITests.swift */,
 				12E929E52136CE9F00B04385 /* Info.plist */,
 			);
 			path = BowlingScoreboardUITests;
@@ -138,6 +136,7 @@
 				12E929B92136CE9D00B04385 /* Sources */,
 				12E929BA2136CE9D00B04385 /* Frameworks */,
 				12E929BB2136CE9D00B04385 /* Resources */,
+				12C034F12136D77000EE22BB /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -199,6 +198,7 @@
 					};
 					12E929D32136CE9F00B04385 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 						TestTargetID = 12E929BC2136CE9D00B04385;
 					};
 					12E929DE2136CE9F00B04385 = {
@@ -254,6 +254,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		12C034F12136D77000EE22BB /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		12E929B92136CE9D00B04385 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -269,7 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12E929D92136CE9F00B04385 /* BowlingScoreboardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +293,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12E929E42136CE9F00B04385 /* BowlingScoreboardUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +486,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MV2JZMSBKV;
 				INFOPLIST_FILE = BowlingScoreboardTests/Info.plist;
@@ -481,6 +497,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = codes.joshua.BowlingScoreboardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BowlingScoreboard.app/BowlingScoreboard";
@@ -492,6 +509,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MV2JZMSBKV;
 				INFOPLIST_FILE = BowlingScoreboardTests/Info.plist;
