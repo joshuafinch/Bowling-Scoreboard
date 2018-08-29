@@ -47,6 +47,10 @@ Below is the set of user stories that outline the intended functionality of this
 - As a user I want a fun animation when I score a strike
 - As a user I want to see a list of my previous games and be able to tap in for a summary of the score
 
+### How does scoring work?
+
+Scoring for this mobile application is based on [these instructions from ThoughtCo.](https://www.thoughtco.com/bowling-scoring-420895)
+
 ## Copyright & License
 
 This software is released under the [MIT License](LICENSE.md).
