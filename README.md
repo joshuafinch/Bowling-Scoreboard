@@ -21,7 +21,7 @@ The following steps will guide you through the process of running this applicati
 
 1. Ensure you have Xcode 9.4.1 installed
 2. Checkout this repository
-3. open `BowlingScoreboard.xcodeproj` with Xcode
+3. Open `BowlingScoreboard.xcodeproj` with Xcode
 4. Go to the project settings, and change the code signing team to your own
 
 Code signing settings are left at automatic here for simplicity, you can set these to manual if needed but these steps will not take you through that process.
