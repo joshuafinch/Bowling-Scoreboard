@@ -123,7 +123,7 @@ final class FrameCollectionRunningTotalScoreTests: XCTestCase {
 
         XCTAssertEqual(sut.runningTotalScore(), 0)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .one))
+        XCTAssertNoThrow(try sut.take(shot: .one))
 
         XCTAssertEqual(sut.runningTotalScore(), 1)
     }
@@ -136,13 +136,13 @@ final class FrameCollectionRunningTotalScoreTests: XCTestCase {
 
         XCTAssertEqual(sut.runningTotalScore(), 0)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .one))
+        XCTAssertNoThrow(try sut.take(shot: .one))
         XCTAssertEqual(sut.runningTotalScore(), 1)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .five))
+        XCTAssertNoThrow(try sut.take(shot: .five))
         XCTAssertEqual(sut.runningTotalScore(), 6)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .strike))
+        XCTAssertNoThrow(try sut.take(shot: .strike))
         XCTAssertEqual(sut.runningTotalScore(), 16)
     }
 
@@ -156,33 +156,33 @@ final class FrameCollectionRunningTotalScoreTests: XCTestCase {
 
         // Frame 1
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .one))
+        XCTAssertNoThrow(try sut.take(shot: .one))
         XCTAssertEqual(sut.runningTotalScore(), 1)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .five))
+        XCTAssertNoThrow(try sut.take(shot: .five))
         XCTAssertEqual(sut.runningTotalScore(), 6)
 
         // Frame 2
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .strike))
+        XCTAssertNoThrow(try sut.take(shot: .strike))
         XCTAssertEqual(sut.runningTotalScore(), 16)
 
         // Frame 3
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .strike)) // 1+5+10+10
+        XCTAssertNoThrow(try sut.take(shot: .strike)) // 1+5+10+10
         XCTAssertEqual(sut.runningTotalScore(), 36)
 
         // Frame 4
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .strike)) // 6 + 30 + 20 + 10
+        XCTAssertNoThrow(try sut.take(shot: .strike)) // 6 + 30 + 20 + 10
         XCTAssertEqual(sut.runningTotalScore(), 66)
 
         // Frame 5
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .one)) // 6 + 30 + 21 + 11 + 1
+        XCTAssertNoThrow(try sut.take(shot: .one)) // 6 + 30 + 21 + 11 + 1
         XCTAssertEqual(sut.runningTotalScore(), 69)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .three)) // 6 + 30 + 21 + 14 + 4
+        XCTAssertNoThrow(try sut.take(shot: .three)) // 6 + 30 + 21 + 14 + 4
         XCTAssertEqual(sut.runningTotalScore(), 75)
     }
 
@@ -196,62 +196,62 @@ final class FrameCollectionRunningTotalScoreTests: XCTestCase {
 
         // Frame 1 (1+5)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .one))
+        XCTAssertNoThrow(try sut.take(shot: .one))
         XCTAssertEqual(sut.runningTotalScore(), 1)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .five))
+        XCTAssertNoThrow(try sut.take(shot: .five))
         XCTAssertEqual(sut.runningTotalScore(), 6)
 
         // Frame 2 (10+10+10)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .strike))
+        XCTAssertNoThrow(try sut.take(shot: .strike))
         XCTAssertEqual(sut.runningTotalScore(), 16)
 
         // Frame 3 (10+10+1)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .strike)) // 1+5+10+10
+        XCTAssertNoThrow(try sut.take(shot: .strike)) // 1+5+10+10
         XCTAssertEqual(sut.runningTotalScore(), 36)
 
         // Frame 4 (10+1+3)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .strike)) // 6 + 30 + 20 + 10
+        XCTAssertNoThrow(try sut.take(shot: .strike)) // 6 + 30 + 20 + 10
         XCTAssertEqual(sut.runningTotalScore(), 66)
 
         // Frame 5 (4)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .one)) // 6 + 30 + 21 + 11 + 1
+        XCTAssertNoThrow(try sut.take(shot: .one)) // 6 + 30 + 21 + 11 + 1
         XCTAssertEqual(sut.runningTotalScore(), 69)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .three)) // 6 + 30 + 21 + 14 + 4
+        XCTAssertNoThrow(try sut.take(shot: .three)) // 6 + 30 + 21 + 14 + 4
         XCTAssertEqual(sut.runningTotalScore(), 75)
 
         // Frame 6 (10+9)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .four)) // 6 + 30 + 21 + 14 + 4 + 4
+        XCTAssertNoThrow(try sut.take(shot: .four)) // 6 + 30 + 21 + 14 + 4 + 4
         XCTAssertEqual(sut.runningTotalScore(), 79)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .spare(pinsKnockedDown: .six))) // 6 + 30 + 21 + 14 + 4 + 10
+        XCTAssertNoThrow(try sut.take(shot: .spare(pinsKnockedDown: .six))) // 6 + 30 + 21 + 14 + 4 + 10
         XCTAssertEqual(sut.runningTotalScore(), 85)
 
         // Frame 7 (9)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .nine)) // 6 + 30 + 21 + 14 + 4 + 19 + 9
+        XCTAssertNoThrow(try sut.take(shot: .nine)) // 6 + 30 + 21 + 14 + 4 + 19 + 9
         XCTAssertEqual(sut.runningTotalScore(), 103)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .none)) // 6 + 30 + 21 + 14 + 4 + 19 + 9
+        XCTAssertNoThrow(try sut.take(shot: .none)) // 6 + 30 + 21 + 14 + 4 + 19 + 9
         XCTAssertEqual(sut.runningTotalScore(), 103)
 
         // Frame 8 (6)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .none)) // 6 + 30 + 21 + 14 + 4 + 19 + 9
+        XCTAssertNoThrow(try sut.take(shot: .none)) // 6 + 30 + 21 + 14 + 4 + 19 + 9
         XCTAssertEqual(sut.runningTotalScore(), 103)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .six)) // 6 + 30 + 21 + 14 + 4 + 19 + 9 + 6
+        XCTAssertNoThrow(try sut.take(shot: .six)) // 6 + 30 + 21 + 14 + 4 + 19 + 9 + 6
         XCTAssertEqual(sut.runningTotalScore(), 109)
 
         // Frame 9 (8)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .eight)) // 6 + 30 + 21 + 14 + 4 + 19 + 9 + 6 + 8
+        XCTAssertNoThrow(try sut.take(shot: .eight)) // 6 + 30 + 21 + 14 + 4 + 19 + 9 + 6 + 8
         XCTAssertEqual(sut.runningTotalScore(), 117)
     }
 
@@ -277,18 +277,18 @@ final class FrameCollectionRunningTotalScoreTests: XCTestCase {
 
         XCTAssertEqual(sut.runningTotalScore(), 117)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .one))
+        XCTAssertNoThrow(try sut.take(shot: .one))
         XCTAssertEqual(sut.runningTotalScore(), 118)
 
         // Frame 10
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .one))
+        XCTAssertNoThrow(try sut.take(shot: .one))
         XCTAssertEqual(sut.runningTotalScore(), 119)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .spare(pinsKnockedDown: .nine)))
+        XCTAssertNoThrow(try sut.take(shot: .spare(pinsKnockedDown: .nine)))
         XCTAssertEqual(sut.runningTotalScore(), 128)
 
-        XCTAssertNoThrow(try sut.takeShot(shotScore: .strike))
+        XCTAssertNoThrow(try sut.take(shot: .strike))
         XCTAssertEqual(sut.runningTotalScore(), 138)
     }
 }

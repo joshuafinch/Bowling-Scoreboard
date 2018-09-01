@@ -14,10 +14,8 @@
 		12C034FD21371A5500EE22BB /* PlayerFrames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C034FC21371A5500EE22BB /* PlayerFrames.swift */; };
 		12C0350121371A8200EE22BB /* ScoreCalculationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C0350021371A8200EE22BB /* ScoreCalculationError.swift */; };
 		12C0350321371A9800EE22BB /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C0350221371A9800EE22BB /* Frame.swift */; };
-		12C0350521371AB800EE22BB /* ShotScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C0350421371AB800EE22BB /* ShotScore.swift */; };
+		12C0350521371AB800EE22BB /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C0350421371AB800EE22BB /* Shot.swift */; };
 		12E929C12136CE9D00B04385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E929C02136CE9D00B04385 /* AppDelegate.swift */; };
-		12E929C32136CE9D00B04385 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E929C22136CE9D00B04385 /* ViewController.swift */; };
-		12E929C62136CE9D00B04385 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12E929C42136CE9D00B04385 /* Main.storyboard */; };
 		12E929C92136CE9D00B04385 /* BowlingScoreboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12E929C72136CE9D00B04385 /* BowlingScoreboard.xcdatamodeld */; };
 		12E929CB2136CE9F00B04385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E929CA2136CE9F00B04385 /* Assets.xcassets */; };
 		12E929CE2136CE9F00B04385 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12E929CC2136CE9F00B04385 /* LaunchScreen.storyboard */; };
@@ -30,6 +28,12 @@
 		12FD3BC3213AC49C000076EB /* FrameScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3BC2213AC49C000076EB /* FrameScore.swift */; };
 		12FD3BC9213AC5A9000076EB /* FrameCollectionInitializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3BC8213AC5A9000076EB /* FrameCollectionInitializationTests.swift */; };
 		12FD3BCB213AC5FA000076EB /* FrameInitializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3BCA213AC5FA000076EB /* FrameInitializationTests.swift */; };
+		12FD3BCE213AD652000076EB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3BCD213AD652000076EB /* GameViewController.swift */; };
+		12FD3BD1213AD692000076EB /* FramesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3BD0213AD692000076EB /* FramesCollectionViewController.swift */; };
+		12FD3BD3213AD6CC000076EB /* AvailableShotsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3BD2213AD6CC000076EB /* AvailableShotsCollectionViewController.swift */; };
+		12FD3BD7213ADB8E000076EB /* CenterCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3BD6213ADB8E000076EB /* CenterCollectionViewFlowLayout.swift */; };
+		12FD3BDD213AF0E6000076EB /* ShotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12FD3BDC213AF0E6000076EB /* ShotCollectionViewCell.xib */; };
+		12FD3BDF213AFF99000076EB /* ShotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3BDE213AFF99000076EB /* ShotCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,11 +63,9 @@
 		12C034FC21371A5500EE22BB /* PlayerFrames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerFrames.swift; sourceTree = "<group>"; };
 		12C0350021371A8200EE22BB /* ScoreCalculationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculationError.swift; sourceTree = "<group>"; };
 		12C0350221371A9800EE22BB /* Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
-		12C0350421371AB800EE22BB /* ShotScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotScore.swift; sourceTree = "<group>"; };
+		12C0350421371AB800EE22BB /* Shot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
 		12E929BD2136CE9D00B04385 /* BowlingScoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E929C02136CE9D00B04385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		12E929C22136CE9D00B04385 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		12E929C52136CE9D00B04385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		12E929C82136CE9D00B04385 /* BowlingScoreboard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BowlingScoreboard.xcdatamodel; sourceTree = "<group>"; };
 		12E929CA2136CE9F00B04385 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12E929CD2136CE9F00B04385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,13 @@
 		12FD3BC2213AC49C000076EB /* FrameScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameScore.swift; sourceTree = "<group>"; };
 		12FD3BC8213AC5A9000076EB /* FrameCollectionInitializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCollectionInitializationTests.swift; sourceTree = "<group>"; };
 		12FD3BCA213AC5FA000076EB /* FrameInitializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameInitializationTests.swift; sourceTree = "<group>"; };
+		12FD3BCD213AD652000076EB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		12FD3BD0213AD692000076EB /* FramesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesCollectionViewController.swift; sourceTree = "<group>"; };
+		12FD3BD2213AD6CC000076EB /* AvailableShotsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableShotsCollectionViewController.swift; sourceTree = "<group>"; };
+		12FD3BD6213ADB8E000076EB /* CenterCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		12FD3BD8213AE8FC000076EB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		12FD3BDC213AF0E6000076EB /* ShotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShotCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		12FD3BDE213AFF99000076EB /* ShotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +123,7 @@
 				12C034EF2136D60B00EE22BB /* Game.swift */,
 				12FD3BBC213861A0000076EB /* FrameCollection.swift */,
 				12FD3BC7213AC511000076EB /* Model */,
+				12FD3BCC213AD63E000076EB /* View */,
 				12FD3BC4213AC4DE000076EB /* Error */,
 				12C034F821370E8700EE22BB /* Node.swift */,
 			);
@@ -134,6 +144,7 @@
 		12E929B42136CE9D00B04385 = {
 			isa = PBXGroup;
 			children = (
+				12FD3BD8213AE8FC000076EB /* .swiftlint.yml */,
 				12C034F62136DDE400EE22BB /* README.md */,
 				12C034F72136DDE400EE22BB /* LICENSE.md */,
 				12E929BF2136CE9D00B04385 /* BowlingScoreboard */,
@@ -159,8 +170,6 @@
 				12EE8FFE21382C5500F08F96 /* Log.swift */,
 				12C034EE2136D5F000EE22BB /* Game */,
 				12E929C02136CE9D00B04385 /* AppDelegate.swift */,
-				12E929C22136CE9D00B04385 /* ViewController.swift */,
-				12E929C42136CE9D00B04385 /* Main.storyboard */,
 				12E929CA2136CE9F00B04385 /* Assets.xcassets */,
 				12E929CC2136CE9F00B04385 /* LaunchScreen.storyboard */,
 				12E929CF2136CE9F00B04385 /* Info.plist */,
@@ -199,7 +208,7 @@
 		12FD3BC7213AC511000076EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				12C0350421371AB800EE22BB /* ShotScore.swift */,
+				12C0350421371AB800EE22BB /* Shot.swift */,
 				12FD3BC0213AC43F000076EB /* PinsKnockedDown.swift */,
 				12C0350221371A9800EE22BB /* Frame.swift */,
 				12FD3BC2213AC49C000076EB /* FrameScore.swift */,
@@ -207,6 +216,43 @@
 				12C034FA21371A4500EE22BB /* Player.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		12FD3BCC213AD63E000076EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12FD3BDB213AEAFB000076EB /* Game View */,
+				12FD3BDA213AEAF0000076EB /* Frames View */,
+				12FD3BD9213AEAC2000076EB /* Available Shots View */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		12FD3BD9213AEAC2000076EB /* Available Shots View */ = {
+			isa = PBXGroup;
+			children = (
+				12FD3BD2213AD6CC000076EB /* AvailableShotsCollectionViewController.swift */,
+				12FD3BD6213ADB8E000076EB /* CenterCollectionViewFlowLayout.swift */,
+				12FD3BDE213AFF99000076EB /* ShotCollectionViewCell.swift */,
+				12FD3BDC213AF0E6000076EB /* ShotCollectionViewCell.xib */,
+			);
+			path = "Available Shots View";
+			sourceTree = "<group>";
+		};
+		12FD3BDA213AEAF0000076EB /* Frames View */ = {
+			isa = PBXGroup;
+			children = (
+				12FD3BD0213AD692000076EB /* FramesCollectionViewController.swift */,
+			);
+			path = "Frames View";
+			sourceTree = "<group>";
+		};
+		12FD3BDB213AEAFB000076EB /* Game View */ = {
+			isa = PBXGroup;
+			children = (
+				12FD3BCD213AD652000076EB /* GameViewController.swift */,
+			);
+			path = "Game View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,7 +364,7 @@
 			files = (
 				12E929CE2136CE9F00B04385 /* LaunchScreen.storyboard in Resources */,
 				12E929CB2136CE9F00B04385 /* Assets.xcassets in Resources */,
-				12E929C62136CE9D00B04385 /* Main.storyboard in Resources */,
+				12FD3BDD213AF0E6000076EB /* ShotCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,11 +406,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12FD3BD7213ADB8E000076EB /* CenterCollectionViewFlowLayout.swift in Sources */,
 				12C034FD21371A5500EE22BB /* PlayerFrames.swift in Sources */,
 				12EE8FFF21382C5500F08F96 /* Log.swift in Sources */,
-				12E929C32136CE9D00B04385 /* ViewController.swift in Sources */,
 				12C034F921370E8700EE22BB /* Node.swift in Sources */,
-				12C0350521371AB800EE22BB /* ShotScore.swift in Sources */,
+				12C0350521371AB800EE22BB /* Shot.swift in Sources */,
+				12FD3BD1213AD692000076EB /* FramesCollectionViewController.swift in Sources */,
 				12E929C92136CE9D00B04385 /* BowlingScoreboard.xcdatamodeld in Sources */,
 				12C0350121371A8200EE22BB /* ScoreCalculationError.swift in Sources */,
 				12FD3BBF213AC421000076EB /* TakeShotError.swift in Sources */,
@@ -372,9 +419,12 @@
 				12FD3BC1213AC440000076EB /* PinsKnockedDown.swift in Sources */,
 				12C034FB21371A4500EE22BB /* Player.swift in Sources */,
 				12C034F02136D60B00EE22BB /* Game.swift in Sources */,
+				12FD3BCE213AD652000076EB /* GameViewController.swift in Sources */,
 				12FD3BBD213861A0000076EB /* FrameCollection.swift in Sources */,
 				12C0350321371A9800EE22BB /* Frame.swift in Sources */,
+				12FD3BD3213AD6CC000076EB /* AvailableShotsCollectionViewController.swift in Sources */,
 				12FD3BC3213AC49C000076EB /* FrameScore.swift in Sources */,
+				12FD3BDF213AFF99000076EB /* ShotCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,14 +463,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		12E929C42136CE9D00B04385 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				12E929C52136CE9D00B04385 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		12E929CC2136CE9F00B04385 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

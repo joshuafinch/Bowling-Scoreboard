@@ -17,13 +17,13 @@ struct Frame {
     let isFinal: Bool
 
     /// Current shot scores in this frame
-    let shots: [ShotScore]
+    let shots: [Shot]
 
     private let maxPins = 10
 
     // MARK: - Initialization
 
-    init?(isFinal: Bool = false, shots: [ShotScore] = []) {
+    init?(isFinal: Bool = false, shots: [Shot] = []) {
         self.isFinal = isFinal
         self.shots = shots
 
@@ -47,13 +47,13 @@ struct Frame {
         return allNecessaryShotsTakenInNonFinalFrame()
     }
 
-    func takeShot(shotScore: ShotScore) throws -> Frame {
+    func take(shot: Shot) throws -> Frame {
         if allNecessaryShotsTaken() {
             throw TakeShotError.alreadyTakenNecessaryShotsInThisFrame
         }
 
         var newShots = shots
-        newShots.append(shotScore)
+        newShots.append(shot)
 
         guard let newFrame = Frame(isFinal: isFinal, shots: newShots) else {
             throw TakeShotError.invalidShot
@@ -62,34 +62,34 @@ struct Frame {
         return newFrame
     }
 
-    func availableShots() -> [ShotScore] {
+    func availableShots() -> [Shot] {
         if allNecessaryShotsTaken() {
             return []
         }
 
-        let allShots: [ShotScore] = [.none,
-                                     .one,
-                                     .two,
-                                     .three,
-                                     .four,
-                                     .five,
-                                     .six,
-                                     .seven,
-                                     .eight,
-                                     .nine,
-                                     .spare(pinsKnockedDown: .one),
-                                     .spare(pinsKnockedDown: .two),
-                                     .spare(pinsKnockedDown: .three),
-                                     .spare(pinsKnockedDown: .four),
-                                     .spare(pinsKnockedDown: .five),
-                                     .spare(pinsKnockedDown: .six),
-                                     .spare(pinsKnockedDown: .seven),
-                                     .spare(pinsKnockedDown: .eight),
-                                     .spare(pinsKnockedDown: .nine),
-                                     .spare(pinsKnockedDown: .ten),
-                                     .strike]
+        let allShots: [Shot] = [.none,
+                                .one,
+                                .two,
+                                .three,
+                                .four,
+                                .five,
+                                .six,
+                                .seven,
+                                .eight,
+                                .nine,
+                                .spare(pinsKnockedDown: .one),
+                                .spare(pinsKnockedDown: .two),
+                                .spare(pinsKnockedDown: .three),
+                                .spare(pinsKnockedDown: .four),
+                                .spare(pinsKnockedDown: .five),
+                                .spare(pinsKnockedDown: .six),
+                                .spare(pinsKnockedDown: .seven),
+                                .spare(pinsKnockedDown: .eight),
+                                .spare(pinsKnockedDown: .nine),
+                                .spare(pinsKnockedDown: .ten),
+                                .strike]
 
-        return allShots.filter({ (try? takeShot(shotScore: $0)) != nil })
+        return allShots.filter({ (try? take(shot: $0)) != nil })
     }
 
     // MARK: - Private
@@ -200,7 +200,7 @@ struct Frame {
         }
     }
 
-    private func validateSpare(pinsKnockedDown: PinsKnockedDown, previousShot: ShotScore) throws {
+    private func validateSpare(pinsKnockedDown: PinsKnockedDown, previousShot: Shot) throws {
 
         if previousShot.numericValue + pinsKnockedDown.rawValue > maxPins {
             // Cannot knock down more pins than are available

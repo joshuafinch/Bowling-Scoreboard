@@ -14,7 +14,7 @@ protocol GameDelegate: class {
 
     func gameFinished()
 
-    func availableShotsDidChange(toShots: [ShotScore])
+    func availableShotsDidChange(toShots: [Shot])
 
 }
 
@@ -54,11 +54,11 @@ final class Game {
         return !players.contains { !$0.frames.allNecessaryShotsTaken() }
     }
 
-    func takeShot(shotScore: ShotScore) throws {
-        try currentPlayer.frames.takeShot(shotScore: shotScore)
+    func take(shot: Shot) throws {
+        try currentPlayer.frames.take(shot: shot)
     }
 
-    func availableShots() -> [ShotScore] {
+    func availableShots() -> [Shot] {
         let (_, currentFrame) = currentPlayer.frames.currentFrame()
         return currentFrame.availableShots()
     }

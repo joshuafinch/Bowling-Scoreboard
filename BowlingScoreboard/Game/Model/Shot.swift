@@ -1,5 +1,5 @@
 //
-//  ShotScore.swift
+//  Shot.swift
 //  BowlingScoreboard
 //
 //  Created by Joshua Finch on 29/08/2018.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// The player's score for a single shot within a `Frame`, not taking into account bonuses for strikes and spares
-enum ShotScore {
+enum Shot {
 
     /// When the player fails to knock down any pins in that shot.
     case none
@@ -39,4 +39,14 @@ enum ShotScore {
         case .strike: return 10
         }
     }
+
+    static let all: [Shot] = [
+        .none, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine,
+        .spare(pinsKnockedDown: .one), .spare(pinsKnockedDown: .two),
+        .spare(pinsKnockedDown: .three), .spare(pinsKnockedDown: .four),
+        .spare(pinsKnockedDown: .five), .spare(pinsKnockedDown: .six),
+        .spare(pinsKnockedDown: .seven), .spare(pinsKnockedDown: .eight),
+        .spare(pinsKnockedDown: .nine), .spare(pinsKnockedDown: .ten),
+        .strike
+    ]
 }

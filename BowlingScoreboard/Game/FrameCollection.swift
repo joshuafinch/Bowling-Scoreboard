@@ -97,7 +97,7 @@ final class FrameCollection {
         return true
     }
 
-    func takeShot(shotScore: ShotScore) throws {
+    func take(shot: Shot) throws {
 
         let (frameIndex, frame) = currentFrame()
 
@@ -105,7 +105,7 @@ final class FrameCollection {
                log: Log.takeShot, type: .debug,
                frameIndex, frame.isFinal, frame.shots)
 
-        let newFrame = try frame.takeShot(shotScore: shotScore)
+        let newFrame = try frame.take(shot: shot)
 
         os_log("New frame (%d): (isFinal: %d, shots: %@)",
                log: Log.takeShot, type: .debug,
@@ -219,7 +219,7 @@ final class FrameCollection {
                         let nextShot = nextFrameShots.first
                         let nextShotValue = nextShot?.numericValue ?? 0
 
-                        var subsequentShot: ShotScore?
+                        var subsequentShot: Shot?
 
                         if let nextShot = nextShot {
                             if case .strike = nextShot, !nextNode.value.frame.isFinal {
