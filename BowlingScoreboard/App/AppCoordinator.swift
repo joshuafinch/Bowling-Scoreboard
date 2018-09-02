@@ -8,57 +8,6 @@
 
 import Foundation
 import UIKit
-import os
-
-final class MainCoordinator {
-
-    init() {
-
-    }
-
-    func createMain() -> UIViewController {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
-        return viewController
-    }
-
-    // MARK: - Test Data
-
-    private func prepareGameTestData() -> Game {
-        let player1 = FrameCollection(frames: [
-            Frame(isFinal: false, shots: [.one, .two])!,
-            Frame(isFinal: false, shots: [.three, .four])!,
-            Frame(isFinal: false, shots: [.one, .none])!,
-            Frame(isFinal: false, shots: [.none, .none])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: true, shots: [.strike, .strike])!
-            ])!
-
-        let player2 = FrameCollection(frames: [
-            Frame(isFinal: false, shots: [.nine, .none])!,
-            Frame(isFinal: false, shots: [.four, .two])!,
-            Frame(isFinal: false, shots: [.one, .spare(pinsKnockedDown: .nine)])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: false, shots: [.strike])!,
-            Frame(isFinal: true)!
-            ])!
-
-        let game = Game(players: [
-            PlayerFrames(player: Player(name: "Joshua"), frames: player1),
-            PlayerFrames(player: Player(name: "Player 2"), frames: player2)
-            ])!
-
-        return game
-    }
-}
 
 final class AppCoordinator {
 
@@ -137,7 +86,7 @@ final class AppCoordinator {
     }
 
     private func createMain() -> (MainCoordinator, UIViewController) {
-        let mainCoordinator = MainCoordinator()
+        let mainCoordinator = MainCoordinator(dataController: dataController)
         let viewController = mainCoordinator.createMain()
         return (mainCoordinator, viewController)
     }

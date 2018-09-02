@@ -38,10 +38,16 @@ class GameViewModel: GameDelegate, TakeShotDelegate {
     }
 
     private let game: Game
+    private let dataController: CoreDataController
 
-    init(game: Game) {
+    init(game: Game, dataController: CoreDataController) {
+        self.dataController = dataController
         self.game = game
         game.delegate = self
+    }
+
+    func onViewWillDisappear() {
+        save()
     }
 
     // MARK: - GameDelegate
@@ -88,6 +94,27 @@ class GameViewModel: GameDelegate, TakeShotDelegate {
     private func updateAvailableShots(usingAvailableShots shots: [Shot]? = nil) {
         availableShotsCollectionViewController?.shots = shots ?? game.availableShots()
     }
+
+    private func save() {
+        let game = self.game
+        self.dataController.performBackgroundTask { (context) in
+            do {
+                try GameData.updateOrCreateGame(game: game, context: context)
+
+                if context.hasChanges {
+                    do {
+                        try context.save()
+                    } catch {
+                        // Can fail if the device storage is full (and a number of other unavoidable reasons)
+                        // We should handle this better than creating a stack trace
+                        fatalError("Couldn't save changes after creating/updating game: \(error)")
+                    }
+                }
+            } catch {
+                fatalError("Couldn't create/update game: \(error)")
+            }
+        }
+    }
 }
 
 final class GameViewController: UIViewController {
@@ -99,6 +126,13 @@ final class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.framesCollectionViewHeightConstraint = framesCollectionViewHeightConstraint
+
+        navigationItem.largeTitleDisplayMode = .never
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        viewModel?.onViewWillDisappear()
+        super.viewWillDisappear(animated)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

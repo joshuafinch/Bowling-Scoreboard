@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Player: Equatable {
+struct Player: Equatable, Codable {
 
     let name: String
 }

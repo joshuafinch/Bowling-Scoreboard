@@ -50,6 +50,20 @@ final class FrameCollection: Equatable {
         return frames
     }
 
+    var frames: [Frame] {
+        var frames: [Frame] = []
+
+        var current: Node<FrameScore>? = head
+        repeat {
+            if let node = current {
+                frames.append(node.value.frame)
+            }
+            current = current?.next
+        } while current != nil
+
+        return frames
+    }
+
     private var head: Node<FrameScore>
 
     // MARK: - Initialization

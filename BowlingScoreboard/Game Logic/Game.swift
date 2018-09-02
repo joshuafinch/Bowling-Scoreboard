@@ -23,6 +23,9 @@ final class Game {
 
     // MARK: - Properties
 
+    /// Unique Identifier
+    let identifier: UUID
+
     /// The date when the game started
     let startDate: Date
 
@@ -36,16 +39,29 @@ final class Game {
 
     // MARK: - Initialization
 
-    init?(players: [PlayerFrames], startDate: Date = Date(timeIntervalSinceNow: 0)) {
+    init?(players: [PlayerFrames], startDate: Date = Date(timeIntervalSinceNow: 0), identifier: UUID = UUID()) {
 
         self.startDate = startDate
         self.players = players
+        self.identifier = identifier
 
         guard let currentPlayer = Game.currentPlayersTurn(players: players) else {
             return nil
         }
 
         self.currentPlayer = currentPlayer
+    }
+
+    convenience init?(gameData: GameData) {
+        guard let startDate = gameData.startDate, let playersFramesData = gameData.playersFrames, let identifier = gameData.identifier else {
+            return nil
+        }
+
+        guard let playerFrames = try? PropertyListDecoder().decode([PlayerFrames].self, from: playersFramesData) else {
+            return nil
+        }
+
+        self.init(players: playerFrames, startDate: startDate, identifier: identifier)
     }
 
     // MARK: - Public

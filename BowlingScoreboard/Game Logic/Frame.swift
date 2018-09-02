@@ -9,7 +9,7 @@
 import Foundation
 import os
 
-struct Frame: Equatable {
+struct Frame: Equatable, Codable {
 
     // MARK: - Properties
 

@@ -54,6 +54,19 @@ final class CoreDataController {
 
     // MARK: -
 
+    func onLoaded(_ callback: @escaping () -> Void) {
+        if isStoreLoaded {
+            callback()
+            return
+        }
+
+        // TODO: Should add max tries logic etc to this
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 10000), execute: { [weak self] in
+            self?.onLoaded(callback)
+        })
+    }
+
     func loadStore(completionHandler: @escaping (Error?) -> Void) {
 
         if let defaultStoreURL = persistentContainer.persistentStoreDescriptions.compactMap({ $0.url }).first {

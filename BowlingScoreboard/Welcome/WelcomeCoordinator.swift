@@ -30,6 +30,16 @@ extension UserProfile {
             fatalError("Couldn't fetch user profile")
         }
     }
+
+    static func currentPlayerName(context: NSManagedObjectContext) -> String? {
+        do {
+
+            let results = try context.fetch(UserProfile.fetchRequest()) as [UserProfile]
+            return results.first?.nickname
+        } catch {
+            fatalError("Couldn't fetch user profile")
+        }
+    }
 }
 
 class ProfileController {
