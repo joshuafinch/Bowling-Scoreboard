@@ -16,6 +16,7 @@ protocol GameDelegate: class {
 
     func availableShotsDidChange(toShots: [Shot])
 
+    func framesDidChange(toPlayerFrames: [PlayerFrames])
 }
 
 final class Game {
@@ -55,7 +56,16 @@ final class Game {
     }
 
     func take(shot: Shot) throws {
+        checkCurrentPlayer()
         try currentPlayer.frames.take(shot: shot)
+        checkCurrentPlayer()
+
+        delegate?.framesDidChange(toPlayerFrames: players)
+        delegate?.availableShotsDidChange(toShots: availableShots())
+
+        if isComplete() {
+            delegate?.gameFinished()
+        }
     }
 
     func availableShots() -> [Shot] {
@@ -63,15 +73,27 @@ final class Game {
         return currentFrame.availableShots()
     }
 
+    private func checkCurrentPlayer() {
+        if let nextPlayer = Game.currentPlayersTurn(players: players) {
+            if nextPlayer != currentPlayer {
+                currentPlayer = nextPlayer
+                delegate?.currentPlayerDidChange()
+            }
+        }
+    }
+
     // MARK: - Private
 
     private static func currentPlayersTurn(players: [PlayerFrames]) -> PlayerFrames? {
 
-        guard let firstPlayer = players.first else {
+        guard !players.isEmpty else {
             return nil
         }
 
+        var players = players
+        let firstPlayer = players.removeFirst()
         let (firstPlayerFrameIndex, firstPlayerFrame) = firstPlayer.frames.currentFrame()
+
         var current: (player: PlayerFrames, frameIndex: Int, frame: Frame) = (firstPlayer,
                                                                               firstPlayerFrameIndex,
                                                                               firstPlayerFrame)
@@ -79,8 +101,12 @@ final class Game {
         for player in players {
             let (frameIndex, frame) = player.frames.currentFrame()
 
-            if frameIndex <= current.frameIndex {
+            if frameIndex == current.frameIndex {
                 if current.frame.allNecessaryShotsTaken() && !frame.allNecessaryShotsTaken() {
+                    current = (player, frameIndex, frame)
+                }
+            } else if frameIndex < current.frameIndex {
+                if (current.frame.shots.count > 0 && !current.frame.allNecessaryShotsTaken()) && !frame.allNecessaryShotsTaken() {
                     current = (player, frameIndex, frame)
                 }
             }

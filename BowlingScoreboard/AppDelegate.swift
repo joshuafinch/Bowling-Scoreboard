@@ -17,13 +17,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let availableShotsViewController = AvailableShotsCollectionViewController()
-        //let exampleShotsForFirstShot: [Shot] = [.none, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .strike]
-        let exampleShotsForSecondShot: [Shot] = [.none, .one, .two, .three, .four, .five, .six, .seven, .eight, .spare(pinsKnockedDown: .one)]
-        availableShotsViewController.shots = exampleShotsForSecondShot
+        let gameStoryboard = UIStoryboard(name: "Game", bundle: .main)
+        let gameViewController = gameStoryboard.instantiateInitialViewController() as? GameViewController
+        gameViewController?.viewModel = GameViewModel(game: prepareGameTestData())
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = availableShotsViewController
+        window?.rootViewController = gameViewController
         window?.makeKeyAndVisible()
 
         return true
@@ -32,6 +31,69 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+
+    // MARK: - Test Data
+
+    private func prepareGameTestData() -> Game {
+//        let player1 = FrameCollection(frames: [
+//            Frame(isFinal: false, shots: [.one, .two])!,
+//            Frame(isFinal: false, shots: [.three, .four])!,
+//            Frame(isFinal: false, shots: [.one, .none])!,
+//            Frame(isFinal: false, shots: [.none, .none])!,
+//            Frame(isFinal: false, shots: [.strike])!,
+//            Frame()!,
+//            Frame()!,
+//            Frame()!,
+//            Frame()!,
+//            Frame(isFinal: true)!
+//            ])!
+//
+//        let player2 = FrameCollection(frames: [
+//            Frame(isFinal: false, shots: [.nine, .none])!,
+//            Frame(isFinal: false, shots: [.four, .two])!,
+//            Frame(isFinal: false, shots: [.one, .spare(pinsKnockedDown: .nine)])!,
+//            Frame(isFinal: false, shots: [.strike])!,
+//            Frame()!,
+//            Frame()!,
+//            Frame()!,
+//            Frame()!,
+//            Frame()!,
+//            Frame(isFinal: true)!
+//            ])!
+
+        let player1 = FrameCollection(frames: [
+            Frame(isFinal: false, shots: [.one, .two])!,
+            Frame(isFinal: false, shots: [.three, .four])!,
+            Frame(isFinal: false, shots: [.one, .none])!,
+            Frame(isFinal: false, shots: [.none, .none])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: true, shots: [.strike, .strike])!
+            ])!
+
+        let player2 = FrameCollection(frames: [
+            Frame(isFinal: false, shots: [.nine, .none])!,
+            Frame(isFinal: false, shots: [.four, .two])!,
+            Frame(isFinal: false, shots: [.one, .spare(pinsKnockedDown: .nine)])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: false, shots: [.strike])!,
+            Frame(isFinal: true)!
+            ])!
+
+        let game = Game(players: [
+            PlayerFrames(player: Player(name: "Joshua"), frames: player1),
+            PlayerFrames(player: Player(name: "Player 2"), frames: player2)
+        ])!
+
+        return game
     }
 
     // MARK: - Core Data stack

@@ -9,7 +9,7 @@
 import Foundation
 
 /// The player's score for a single shot within a `Frame`, not taking into account bonuses for strikes and spares
-enum Shot {
+enum Shot: Equatable {
 
     /// When the player fails to knock down any pins in that shot.
     case none

@@ -9,9 +9,47 @@
 import Foundation
 import os
 
-final class FrameCollection {
+final class FrameCollection: Equatable {
+
+    static func == (lhs: FrameCollection, rhs: FrameCollection) -> Bool {
+        return lhs.frameInfos == rhs.frameInfos
+    }
+
 
     // MARK: - Properties
+
+    var frameScores: [FrameScore] {
+        var frames: [FrameScore] = []
+
+        var current: Node<FrameScore>? = head
+        repeat {
+            if let node = current {
+                frames.append(node.value)
+            }
+            current = current?.next
+        } while current != nil
+
+        return frames
+    }
+
+    var frameInfos: [FrameInfo] {
+        var frames: [FrameInfo] = []
+        var foundCurrentFrame = false
+
+        var current: Node<FrameScore>? = head
+        repeat {
+            if let node = current {
+                if !foundCurrentFrame {
+                    foundCurrentFrame = !node.value.frame.allNecessaryShotsTaken()
+                }
+                let info = FrameInfo(isCurrent: foundCurrentFrame, frame: node.value.frame, runningTotalScore: node.value.runningTotalScore)
+                frames.append(info)
+            }
+            current = current?.next
+        } while current != nil
+
+        return frames
+    }
 
     private var head: Node<FrameScore>
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PlayerFrames {
+struct PlayerFrames: Equatable {
 
     let player: Player
     let frames: FrameCollection

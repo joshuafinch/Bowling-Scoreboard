@@ -9,7 +9,7 @@
 import Foundation
 import os
 
-struct Frame {
+struct Frame: Equatable {
 
     // MARK: - Properties
 
@@ -29,10 +29,7 @@ struct Frame {
 
         do {
             try validate()
-        } catch let error {
-            os_log("Failed to initialize frame (isFinal: %d, shots: %@) due to validation error: %@",
-                   log: Log.general, type: .error,
-                   isFinal, shots, error.localizedDescription)
+        } catch {
             return nil
         }
     }
@@ -201,6 +198,10 @@ struct Frame {
     }
 
     private func validateSpare(pinsKnockedDown: PinsKnockedDown, previousShot: Shot) throws {
+
+        if case .spare = previousShot {
+            throw ScoreCalculationError.spareAfterSpare
+        }
 
         if previousShot.numericValue + pinsKnockedDown.rawValue > maxPins {
             // Cannot knock down more pins than are available

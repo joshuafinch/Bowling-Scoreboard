@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fiY-MS-10z">
+    <device id="retina4_0" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="7Ub-G4-8pj">
+            <objects>
+                <viewController id="fiY-MS-10z" customClass="GameViewController" customModule="BowlingScoreboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Zg-4c-UI9">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hgL-hE-TIg">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyx-Jn-Cv2" userLabel="Frames Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="100"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FQA-23-o6S" userLabel="Player Names Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="100"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLR1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="50" translatesAutoresizingMaskIntoConstraints="NO" id="uMh-zk-qYN">
+                                                        <rect key="frame" x="17" y="0.0" width="38" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLR2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="50" translatesAutoresizingMaskIntoConstraints="NO" id="mZr-1S-OIl">
+                                                        <rect key="frame" x="15.5" y="50" width="40.5" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1O-zz-Y03" userLabel="Frames Container View">
+                                                <rect key="frame" x="71.5" y="0.0" width="496.5" height="100"/>
+                                                <connections>
+                                                    <segue destination="66a-Ye-nCY" kind="embed" id="Ff6-Il-WPf"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Yxl-R8-fUN"/>
+                                        </constraints>
+                                    </stackView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byP-vy-3fe" userLabel="Shots Container View">
+                                        <rect key="frame" x="0.0" y="108" width="568" height="212"/>
+                                        <connections>
+                                            <segue destination="p0O-oA-bRG" kind="embed" id="26K-7h-NGP"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99320136339999998" green="1" blue="0.2990374837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AFG-id-q01" firstAttribute="trailing" secondItem="hgL-hE-TIg" secondAttribute="trailing" id="GOM-bP-U2i"/>
+                            <constraint firstItem="hgL-hE-TIg" firstAttribute="top" secondItem="AFG-id-q01" secondAttribute="top" id="cpg-Cd-tSu"/>
+                            <constraint firstItem="AFG-id-q01" firstAttribute="bottom" secondItem="hgL-hE-TIg" secondAttribute="bottom" id="rJY-RV-CAA"/>
+                            <constraint firstItem="hgL-hE-TIg" firstAttribute="leading" secondItem="AFG-id-q01" secondAttribute="leading" id="xTU-EN-9Vg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AFG-id-q01"/>
+                    </view>
+                    <connections>
+                        <outlet property="framesCollectionViewHeightConstraint" destination="Yxl-R8-fUN" id="nBM-VN-YRF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dww-n3-MEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35.625" y="64.436619718309856"/>
+        </scene>
+        <!--Frames Collection View Controller-->
+        <scene sceneID="T0B-yG-hL7">
+            <objects>
+                <collectionViewController id="66a-Ye-nCY" customClass="FramesCollectionViewController" customModule="BowlingScoreboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3Ti-96-wbL">
+                        <rect key="frame" x="0.0" y="0.0" width="284" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewLayout key="collectionViewLayout" id="sgI-cF-UG6" customClass="FramesCollectionViewFlowLayout" customModule="BowlingScoreboard" customModuleProvider="target"/>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="66a-Ye-nCY" id="crp-90-AfJ"/>
+                            <outlet property="delegate" destination="66a-Ye-nCY" id="N7G-7S-usd"/>
+                        </connections>
+                    </collectionView>
+                    <size key="freeformSize" width="284" height="100"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pdT-Zn-vAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="-276"/>
+        </scene>
+        <!--Available Shots Collection View Controller-->
+        <scene sceneID="B7U-N4-FIg">
+            <objects>
+                <collectionViewController id="p0O-oA-bRG" customClass="AvailableShotsCollectionViewController" customModule="BowlingScoreboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="x4x-SK-nid">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="212"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewLayout key="collectionViewLayout" id="dSU-gj-Xur" customClass="CenterCollectionViewFlowLayout" customModule="BowlingScoreboard" customModuleProvider="target"/>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="p0O-oA-bRG" id="ndc-ce-koS"/>
+                            <outlet property="delegate" destination="p0O-oA-bRG" id="4ta-f5-Nkx"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ckV-XV-oAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="768" y="315"/>
+        </scene>
+    </scenes>
+</document>

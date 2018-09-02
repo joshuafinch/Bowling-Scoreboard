@@ -13,7 +13,7 @@ final class ShotCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var label: UILabel!
 
-    func configure(shot: Shot) {
-        label.text = "\(shot.numericValue)"
+    func configure(shot: ShotViewModel) {
+        label.text = shot.string
     }
 }

@@ -17,6 +17,15 @@ class CenterCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     // MARK: - UICollectionViewFlowLayout
 
+    override func prepare() {
+        attributeCache = [:]
+        super.prepare()
+    }
+
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
+    }
+
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 
         guard let collectionView = collectionView else { return nil }
@@ -54,9 +63,11 @@ class CenterCollectionViewFlowLayout: UICollectionViewFlowLayout {
             return cachedAttributes
         }
 
-        let rowsInSection = collectionView.numberOfItems(inSection: indexPath.section)
+        let itemsInSection = collectionView.numberOfItems(inSection: indexPath.section)
+
         let collectionViewWidth = collectionView.bounds.width - collectionView.contentInset.left - collectionView.contentInset.right
-        let itemsInSameRow = findItems(onSameRowAs: indexPath, rowsInSection: rowsInSection, collectionViewWidth: collectionViewWidth)
+
+        let itemsInSameRow = findItems(onSameRowAs: indexPath, itemsInSection: itemsInSection, collectionViewWidth: collectionViewWidth)
 
         var interimSpacing = minimumInteritemSpacing
 
@@ -95,7 +106,7 @@ class CenterCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     // MARK: - Private
 
-    private func findItems(onSameRowAs indexPath: IndexPath, rowsInSection: Int, collectionViewWidth: CGFloat) -> [UICollectionViewLayoutAttributes] {
+    private func findItems(onSameRowAs indexPath: IndexPath, itemsInSection: Int, collectionViewWidth: CGFloat) -> [UICollectionViewLayoutAttributes] {
 
         var itemsOnSameRow = [UICollectionViewLayoutAttributes]()
 
@@ -106,15 +117,15 @@ class CenterCollectionViewFlowLayout: UICollectionViewFlowLayout {
         rowTestFrame.origin.x = 0
         rowTestFrame.size.width = collectionViewWidth
 
-        var firstItemRowIndex = indexPath.row
+        var firstItemIndex = indexPath.row
 
         // Find the first item that is in this row
-        for rowIndex in stride(from: firstItemRowIndex, to: 0, by: 1) {
-            let indexPath = IndexPath(row: rowIndex, section: indexPath.section)
+        for itemIndex in stride(from: firstItemIndex, to: 0, by: 1) {
+            let indexPath = IndexPath(row: itemIndex, section: indexPath.section)
             if let frame = super.layoutAttributesForItem(at: indexPath)?.frame {
                 if frame.intersects(rowTestFrame) {
                     // Is in the same row
-                    firstItemRowIndex = indexPath.row
+                    firstItemIndex = indexPath.item
                     continue
                 } else {
                     // Found the previous row
@@ -123,16 +134,16 @@ class CenterCollectionViewFlowLayout: UICollectionViewFlowLayout {
             }
         }
 
-        var lastItemRowIndex = firstItemRowIndex
+        var lastItemIndex = firstItemIndex
 
         // Iterate until we find the last item that is in this row
         // and add all items found in the same row to our array
-        for rowIndex in lastItemRowIndex..<rowsInSection {
-            let indexPath = IndexPath(row: rowIndex, section: indexPath.section)
+        for itemIndex in lastItemIndex..<itemsInSection {
+            let indexPath = IndexPath(row: itemIndex, section: indexPath.section)
             if let attributes = super.layoutAttributesForItem(at: indexPath) {
                 if attributes.frame.intersects(rowTestFrame) {
                     // Is in the same row
-                    lastItemRowIndex = indexPath.row
+                    lastItemIndex = indexPath.item
                     itemsOnSameRow.append(attributes)
                     continue
                 } else {

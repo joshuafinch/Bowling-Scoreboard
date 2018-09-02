@@ -12,6 +12,7 @@ enum ScoreCalculationError: LocalizedError {
 
     case tooManyShotsInSingleFrame
     case spareOnFirstShot
+    case spareAfterSpare
     case strikeOnSecondShotInNonFinalFrame
     case spareKnockedDownMorePinsThanAvailable
     case spareDidNotKnockDownRemainingPins
@@ -25,6 +26,8 @@ enum ScoreCalculationError: LocalizedError {
             return "Too many shots in a single frame"
         case .spareOnFirstShot:
             return "Cannot have a spare on the first shot of a frame"
+        case .spareAfterSpare:
+            return "Cannot have a spare after a spare"
         case .strikeOnSecondShotInNonFinalFrame:
             return "Cannot have a strike on the second shot of a non-final frame"
         case .spareKnockedDownMorePinsThanAvailable:

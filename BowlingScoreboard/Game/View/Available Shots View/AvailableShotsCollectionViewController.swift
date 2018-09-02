@@ -19,6 +19,8 @@ final class AvailableShotsCollectionViewController: UICollectionViewController {
         }
     }
 
+    weak var takeShotDelegate: TakeShotDelegate?
+
     private let shotCellReuseIdentifier = "shotCellReuseIdentifier"
 
     // MARK: - Initialization
@@ -41,7 +43,6 @@ final class AvailableShotsCollectionViewController: UICollectionViewController {
         }
 
         collectionView.backgroundColor = .white
-        collectionView.delegate = self
 
         let nib = UINib(nibName: "ShotCollectionViewCell", bundle: .main)
         collectionView.register(nib, forCellWithReuseIdentifier: shotCellReuseIdentifier)
@@ -71,8 +72,13 @@ final class AvailableShotsCollectionViewController: UICollectionViewController {
             fatalError("Couldn't dequeue cell of type ShotCollectionViewCell")
         }
 
-        let shot = shots[indexPath.row]
+            let shot = ShotViewModel(shot: shots[indexPath.item])
         cell.configure(shot: shot)
         return cell
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let shot = shots[indexPath.item]
+        takeShotDelegate?.take(shot: shot)
     }
 }

@@ -151,4 +151,14 @@ final class FrameInitializationTests: XCTestCase {
         let frame = Frame(isFinal: true, shots: [.strike, .five, .six])
         XCTAssertNil(frame)
     }
+
+    func testInitThirdShotSpareAfterSpare_FinalFrame_ReturnsNil() {
+        let frame = Frame(isFinal: true, shots: [.five, .spare(pinsKnockedDown: .five), .spare(pinsKnockedDown: .ten)])
+        XCTAssertNil(frame)
+    }
+
+    func testInitThirdShotSpareAfterSpare2_FinalFrame_ReturnsNil() {
+        let frame = Frame(isFinal: true, shots: [.five, .spare(pinsKnockedDown: .five), .spare(pinsKnockedDown: .five)])
+        XCTAssertNil(frame)
+    }
 }
