@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u7P-T4-Pey">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Enter Text View Controller-->
+        <scene sceneID="d7Y-0X-X1G">
+            <objects>
+                <viewController id="u7P-T4-Pey" customClass="EnterTextViewController" customModule="BowlingScoreboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9HO-iu-NYi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your nickname?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kG-2I-38W">
+                                <rect key="frame" x="8" y="251" width="177.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zyd-mq-xpL">
+                                <rect key="frame" x="8" y="279" width="304" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0a6-0b-PkB" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Zyd-mq-xpL" secondAttribute="bottom" constant="8" id="57Y-Sh-GGh"/>
+                            <constraint firstItem="Zyd-mq-xpL" firstAttribute="leading" secondItem="0a6-0b-PkB" secondAttribute="leading" constant="8" id="B5q-OC-cbS"/>
+                            <constraint firstItem="0a6-0b-PkB" firstAttribute="trailing" secondItem="Zyd-mq-xpL" secondAttribute="trailing" constant="8" id="LbS-jH-MyA"/>
+                            <constraint firstItem="Zyd-mq-xpL" firstAttribute="top" secondItem="7kG-2I-38W" secondAttribute="bottom" constant="8" symbolic="YES" id="Tg9-u7-D9t"/>
+                            <constraint firstItem="7kG-2I-38W" firstAttribute="leading" secondItem="0a6-0b-PkB" secondAttribute="leading" constant="8" id="YxO-53-yk2"/>
+                            <constraint firstItem="Zyd-mq-xpL" firstAttribute="centerY" secondItem="0a6-0b-PkB" secondAttribute="centerY" id="ZKA-2n-HVq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0a6-0b-PkB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T6Q-MP-cc4"/>
+                    <connections>
+                        <outlet property="label" destination="7kG-2I-38W" id="lJa-RS-oEB"/>
+                        <outlet property="textField" destination="Zyd-mq-xpL" id="61f-o2-fxB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j1S-fz-0Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-506" y="267"/>
+        </scene>
+    </scenes>
+</document>

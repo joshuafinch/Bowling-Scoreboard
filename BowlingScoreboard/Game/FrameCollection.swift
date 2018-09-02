@@ -15,7 +15,6 @@ final class FrameCollection: Equatable {
         return lhs.frameInfos == rhs.frameInfos
     }
 
-
     // MARK: - Properties
 
     var frameScores: [FrameScore] {

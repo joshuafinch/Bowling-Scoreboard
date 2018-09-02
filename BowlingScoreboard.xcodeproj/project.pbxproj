@@ -15,6 +15,11 @@
 		12C0350121371A8200EE22BB /* ScoreCalculationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C0350021371A8200EE22BB /* ScoreCalculationError.swift */; };
 		12C0350321371A9800EE22BB /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C0350221371A9800EE22BB /* Frame.swift */; };
 		12C0350521371AB800EE22BB /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C0350421371AB800EE22BB /* Shot.swift */; };
+		12D238FC213C30F500FE7CFE /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D238FB213C30F500FE7CFE /* WelcomeCoordinator.swift */; };
+		12D238FE213C37E000FE7CFE /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D238FD213C37E000FE7CFE /* CoreDataController.swift */; };
+		12D23903213C546300FE7CFE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D23902213C546300FE7CFE /* AppCoordinator.swift */; };
+		12D23906213C621000FE7CFE /* EnterTextViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D23905213C621000FE7CFE /* EnterTextViewModelType.swift */; };
+		12D23908213C622B00FE7CFE /* EnterTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D23907213C622B00FE7CFE /* EnterTextViewModel.swift */; };
 		12E929C12136CE9D00B04385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E929C02136CE9D00B04385 /* AppDelegate.swift */; };
 		12E929C92136CE9D00B04385 /* BowlingScoreboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12E929C72136CE9D00B04385 /* BowlingScoreboard.xcdatamodeld */; };
 		12E929CB2136CE9F00B04385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E929CA2136CE9F00B04385 /* Assets.xcassets */; };
@@ -41,6 +46,8 @@
 		12FD3C02213B3E01000076EB /* FrameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3BFC213B3E00000076EB /* FrameInfo.swift */; };
 		12FD3C07213B4410000076EB /* FrameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3C06213B4410000076EB /* FrameViewModel.swift */; };
 		12FD3C09213B524D000076EB /* ShotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3C08213B524D000076EB /* ShotViewModel.swift */; };
+		12FD3C0C213C27FC000076EB /* EnterTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3C0B213C27FC000076EB /* EnterTextViewController.swift */; };
+		12FD3C0E213C2822000076EB /* EnterTextViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12FD3C0D213C2822000076EB /* EnterTextViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +78,11 @@
 		12C0350021371A8200EE22BB /* ScoreCalculationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculationError.swift; sourceTree = "<group>"; };
 		12C0350221371A9800EE22BB /* Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
 		12C0350421371AB800EE22BB /* Shot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
+		12D238FB213C30F500FE7CFE /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		12D238FD213C37E000FE7CFE /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		12D23902213C546300FE7CFE /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		12D23905213C621000FE7CFE /* EnterTextViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTextViewModelType.swift; sourceTree = "<group>"; };
+		12D23907213C622B00FE7CFE /* EnterTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTextViewModel.swift; sourceTree = "<group>"; };
 		12E929BD2136CE9D00B04385 /* BowlingScoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E929C02136CE9D00B04385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12E929C82136CE9D00B04385 /* BowlingScoreboard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BowlingScoreboard.xcdatamodel; sourceTree = "<group>"; };
@@ -104,6 +116,8 @@
 		12FD3BFC213B3E00000076EB /* FrameInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameInfo.swift; sourceTree = "<group>"; };
 		12FD3C06213B4410000076EB /* FrameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameViewModel.swift; sourceTree = "<group>"; };
 		12FD3C08213B524D000076EB /* ShotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotViewModel.swift; sourceTree = "<group>"; };
+		12FD3C0B213C27FC000076EB /* EnterTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTextViewController.swift; sourceTree = "<group>"; };
+		12FD3C0D213C2822000076EB /* EnterTextViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EnterTextViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +169,26 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		12D23901213C545900FE7CFE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				12E929C02136CE9D00B04385 /* AppDelegate.swift */,
+				12D23902213C546300FE7CFE /* AppCoordinator.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		12D23904213C61F200FE7CFE /* EnterTextView */ = {
+			isa = PBXGroup;
+			children = (
+				12D23905213C621000FE7CFE /* EnterTextViewModelType.swift */,
+				12D23907213C622B00FE7CFE /* EnterTextViewModel.swift */,
+				12FD3C0B213C27FC000076EB /* EnterTextViewController.swift */,
+				12FD3C0D213C2822000076EB /* EnterTextViewController.storyboard */,
+			);
+			path = EnterTextView;
+			sourceTree = "<group>";
+		};
 		12E929B42136CE9D00B04385 = {
 			isa = PBXGroup;
 			children = (
@@ -181,9 +215,11 @@
 		12E929BF2136CE9D00B04385 /* BowlingScoreboard */ = {
 			isa = PBXGroup;
 			children = (
+				12D23901213C545900FE7CFE /* App */,
 				12EE8FFE21382C5500F08F96 /* Log.swift */,
+				12D238FD213C37E000FE7CFE /* CoreDataController.swift */,
+				12FD3C0A213C27E2000076EB /* Welcome */,
 				12C034EE2136D5F000EE22BB /* Game */,
-				12E929C02136CE9D00B04385 /* AppDelegate.swift */,
 				12E929CA2136CE9F00B04385 /* Assets.xcassets */,
 				12E929CC2136CE9F00B04385 /* LaunchScreen.storyboard */,
 				12E929CF2136CE9F00B04385 /* Info.plist */,
@@ -274,6 +310,15 @@
 				12FD3BF2213B121E000076EB /* Game.storyboard */,
 			);
 			path = "Game View";
+			sourceTree = "<group>";
+		};
+		12FD3C0A213C27E2000076EB /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				12D238FB213C30F500FE7CFE /* WelcomeCoordinator.swift */,
+				12D23904213C61F200FE7CFE /* EnterTextView */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +433,7 @@
 				12E929CB2136CE9F00B04385 /* Assets.xcassets in Resources */,
 				12FD3C00213B3E01000076EB /* FrameCollectionViewCell.xib in Resources */,
 				12FD3BF8213B3DF2000076EB /* ShotCollectionViewCell.xib in Resources */,
+				12FD3C0E213C2822000076EB /* EnterTextViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,12 +475,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12D23908213C622B00FE7CFE /* EnterTextViewModel.swift in Sources */,
 				12FD3C09213B524D000076EB /* ShotViewModel.swift in Sources */,
 				12FD3BD7213ADB8E000076EB /* CenterCollectionViewFlowLayout.swift in Sources */,
 				12C034FD21371A5500EE22BB /* PlayerFrames.swift in Sources */,
+				12D238FC213C30F500FE7CFE /* WelcomeCoordinator.swift in Sources */,
 				12EE8FFF21382C5500F08F96 /* Log.swift in Sources */,
+				12D238FE213C37E000FE7CFE /* CoreDataController.swift in Sources */,
 				12C034F921370E8700EE22BB /* Node.swift in Sources */,
 				12C0350521371AB800EE22BB /* Shot.swift in Sources */,
+				12D23903213C546300FE7CFE /* AppCoordinator.swift in Sources */,
 				12FD3C07213B4410000076EB /* FrameViewModel.swift in Sources */,
 				12FD3C02213B3E01000076EB /* FrameInfo.swift in Sources */,
 				12FD3BD1213AD692000076EB /* FramesCollectionViewController.swift in Sources */,
@@ -451,7 +501,9 @@
 				12C0350321371A9800EE22BB /* Frame.swift in Sources */,
 				12FD3BF5213B2C0C000076EB /* FramesCollectionViewFlowLayout.swift in Sources */,
 				12FD3BD3213AD6CC000076EB /* AvailableShotsCollectionViewController.swift in Sources */,
+				12D23906213C621000FE7CFE /* EnterTextViewModelType.swift in Sources */,
 				12FD3BC3213AC49C000076EB /* FrameScore.swift in Sources */,
+				12FD3C0C213C27FC000076EB /* EnterTextViewController.swift in Sources */,
 				12FD3BF9213B3DF2000076EB /* ShotCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
