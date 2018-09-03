@@ -18,6 +18,10 @@ final class EnterTextViewController: UIViewController {
 
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     // MARK: -
 
     deinit {
