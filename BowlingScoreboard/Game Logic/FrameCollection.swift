@@ -152,23 +152,13 @@ final class FrameCollection: Equatable {
 
         let (frameIndex, frame) = currentFrame()
 
-        os_log("Current frame (%d): (isFinal: %d, shots: %@)",
-               log: Log.takeShot, type: .debug,
-               frameIndex, frame.isFinal, frame.shots)
-
         let newFrame = try frame.take(shot: shot)
-
-        os_log("New frame (%d): (isFinal: %d, shots: %@)",
-               log: Log.takeShot, type: .debug,
-               frameIndex, newFrame.isFinal, newFrame.shots)
-
         let newNode = Node(FrameScore(frame: newFrame))
 
         var node: Node<FrameScore>? = head
 
         for _ in 0..<frameIndex {
             node = node?.next
-            os_log("Advanced to next node")
         }
 
         guard let current = node else {
@@ -181,14 +171,8 @@ final class FrameCollection: Equatable {
         newNode.next = current.next
         current.next?.previous = newNode
 
-        os_log("Replacing frame (%d): (isFinal: %d, shots: %@)",
-               log: Log.takeShot, type: .debug,
-               frameIndex, current.value.frame.isFinal, current.value.frame.shots)
-
         // If the current node was the head, reassign head to the new node
         if current.previous == nil || current === head {
-            os_log("Replacing head with newNode",
-                   log: Log.takeShot, type: .debug)
             head = newNode
         }
 
