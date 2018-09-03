@@ -1,6 +1,14 @@
+<p align="center"><img width=20% src="https://github.com/joshuafinch/Bowling-Scoreboard/blob/master/Icon.png" /></p>
+
 # Bowling Scoreboard
 
 A mobile application for one or two players of 10 pin bowling to track their scores.
+
+<p align="center">
+  <img width=33% src="/Screenshots/1_Nickname_Portrait.png" />
+  <img width=33% src="/Screenshots/2_GamesList_Portrait.png" />
+  <img width=33% src="/Screenshots/4_GameInProgress_Portrait.png" />
+</p>
 
 ## Table of Contents
 
@@ -33,7 +41,7 @@ Code signing settings are left at automatic here for simplicity, you can set the
 
 ## Features
 
-Below is the set of user stories that outline the intended functionality of this mobile application. Any assumptions that have been made, to limit or expand upon the scope will be listed as well.
+Below is the set of user stories that outline the intended functionality of this mobile application.
 
 ### User Stories
 
