@@ -61,7 +61,7 @@ final class GamesViewModel: NSObject {
     private func createFetchedResultsController(context: NSManagedObjectContext) -> NSFetchedResultsController<GameData> {
         let fetchRequest: NSFetchRequest<GameData> = GameData.fetchRequest()
 
-        let sortDescriptor = NSSortDescriptor(key: "startDate", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "startDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
 
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
