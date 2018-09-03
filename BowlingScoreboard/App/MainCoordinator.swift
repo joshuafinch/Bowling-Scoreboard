@@ -9,11 +9,6 @@
 import Foundation
 import UIKit
 
-enum GameSettings {
-    case onePlayer
-    case twoPlayer
-}
-
 final class MainCoordinator {
 
     // MARK: - Properties

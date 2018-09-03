@@ -8,17 +8,6 @@
 
 import Foundation
 
-protocol GameDelegate: class {
-
-    func currentPlayerDidChange()
-
-    func gameFinished()
-
-    func availableShotsDidChange(toShots: [Shot])
-
-    func framesDidChange(toPlayerFrames: [PlayerFrames])
-}
-
 final class Game {
 
     // MARK: - Properties

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import os
 
 final class FrameCollection: Equatable {
 

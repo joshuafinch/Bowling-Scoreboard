@@ -8,72 +8,6 @@
 
 import Foundation
 import UIKit
-import CoreData
-
-struct UserProfileDetails {
-    let nickname: String
-}
-
-extension UserProfile {
-
-    static func updateOrCreateUserProfile(details: UserProfileDetails, context: NSManagedObjectContext) throws {
-        let results = try context.fetch(UserProfile.fetchRequest())
-        let result = results.first as? UserProfile ?? UserProfile(context: context)
-        result.nickname = details.nickname
-    }
-
-    static func exists(context: NSManagedObjectContext) -> Bool {
-        do {
-            let results = try context.fetch(UserProfile.fetchRequest())
-            return !results.isEmpty
-        } catch {
-            fatalError("Couldn't fetch user profile")
-        }
-    }
-
-    static func currentPlayerName(context: NSManagedObjectContext) -> String? {
-        do {
-
-            let results = try context.fetch(UserProfile.fetchRequest()) as [UserProfile]
-            return results.first?.nickname
-        } catch {
-            fatalError("Couldn't fetch user profile")
-        }
-    }
-}
-
-class ProfileController {
-
-    private let dataController: CoreDataController
-
-    init(dataController: CoreDataController) {
-        self.dataController = dataController
-    }
-
-    func save(userProfileDetails details: UserProfileDetails) {
-        dataController.performBackgroundTask { (context) in
-            do {
-                try UserProfile.updateOrCreateUserProfile(details: details, context: context)
-
-                if context.hasChanges {
-                    do {
-                        try context.save()
-                    } catch {
-                        // Can fail if the device storage is full (and a number of other unavoiable reasons)
-                        // We should handle this better than creating a stack trace
-                        fatalError("Couldn't save changes after updating user profile: \(error)")
-                    }
-                }
-            } catch {
-                fatalError("Couldn't update user profile: \(error)")
-            }
-        }
-    }
-}
-
-enum NicknameValidationError: Error {
-    case isMandatory
-}
 
 final class WelcomeCoordinator {
 
@@ -101,7 +35,13 @@ final class WelcomeCoordinator {
                 return .invalid(.isMandatory)
             }
 
-            return .valid(entry)
+            let trimmed = entry.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+
+            if trimmed.isEmpty {
+                return .invalid(.onlyWhitespaceCharactersPresent)
+            }
+
+            return .valid(trimmed)
         }
 
         let enterNicknameState = EnterNicknameViewModel.State(labelText: "What's your nickname?",
