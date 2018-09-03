@@ -11,6 +11,11 @@ import UIKit
 
 final class MainCoordinator {
 
+    // MARK: - Types
+
+    typealias EnterNicknameViewFactory = EnterTextViewFactory<String, NicknameValidationError>
+    private var enterOpponentsNameViewModel: EnterNicknameViewFactory.ViewModel?
+
     // MARK: - Properties
 
     let dataController: CoreDataController
@@ -65,9 +70,39 @@ final class MainCoordinator {
         presentingViewController.present(actionSheet, animated: true, completion: nil)
     }
 
-    private func chooseOpponentsName(completionHandler: @escaping (String) -> Void) {
-        // TODO: Use the text entry screen to capture the name here
-        completionHandler("Bob")
+    private func chooseOpponentsName(navigationController: UINavigationController, completionHandler: @escaping (String) -> Void) {
+
+        let finishedEnteringNickname: EnterNicknameViewFactory.ResultCallback = { [unowned self] entry in
+            self.enterOpponentsNameViewModel = nil
+            completionHandler(entry)
+        }
+
+        let enterNicknameValidator: EnterNicknameViewFactory.Validator = { entry in
+            guard let entry = entry else {
+                return .invalid(.isMandatory)
+            }
+
+            let trimmed = entry.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+
+            if trimmed.isEmpty {
+                return .invalid(.onlyWhitespaceCharactersPresent)
+            }
+
+            return .valid(trimmed)
+        }
+
+        let enterNicknameState = EnterNicknameViewFactory.State(labelText: "What's your opponent's nickname?",
+                                                                initialTextFieldText: nil,
+                                                                placeholderTextFieldText: nil,
+                                                                textContentType: .nickname)
+
+        let (enterNicknameViewModel, enterNicknameViewController) = EnterNicknameViewFactory.create(
+            state: enterNicknameState, validator: enterNicknameValidator, resultCallback: finishedEnteringNickname
+        )
+
+        self.enterOpponentsNameViewModel = enterNicknameViewModel
+
+        navigationController.pushViewController(enterNicknameViewController, animated: true)
     }
 
     private func start(newGame gameSettings: GameSettings, navigationController: UINavigationController) {
@@ -79,8 +114,9 @@ final class MainCoordinator {
         case .onePlayer:
             startNewGame(players: [currentPlayer], navigationController: navigationController)
         case .twoPlayer:
-            chooseOpponentsName { [unowned self] (opponentName) in
+            chooseOpponentsName(navigationController: navigationController) { [unowned self] (opponentName) in
                 let opposingPlayer = Player(name: opponentName)
+                navigationController.popToRootViewController(animated: true)
                 self.startNewGame(players: [currentPlayer, opposingPlayer], navigationController: navigationController)
             }
         }

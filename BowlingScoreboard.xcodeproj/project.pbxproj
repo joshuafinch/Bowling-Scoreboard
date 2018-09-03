@@ -34,6 +34,7 @@
 		12D27BFE213D8E89009D0D6F /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D27BFD213D8E89009D0D6F /* GamesViewModel.swift */; };
 		12D27C00213D8EC7009D0D6F /* TakeShotDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D27BFF213D8EC7009D0D6F /* TakeShotDelegate.swift */; };
 		12D27C02213D8EE5009D0D6F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D27C01213D8EE5009D0D6F /* GameViewModel.swift */; };
+		12D27C04213D9058009D0D6F /* EnterTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D27C03213D9058009D0D6F /* EnterTextViewFactory.swift */; };
 		12D640C7213D7D4E0064AA5C /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D640C6213D7D4E0064AA5C /* GameTableViewCell.swift */; };
 		12D640C9213D7D7D0064AA5C /* GameCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D640C8213D7D7D0064AA5C /* GameCellViewModel.swift */; };
 		12E929C12136CE9D00B04385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E929C02136CE9D00B04385 /* AppDelegate.swift */; };
@@ -113,6 +114,7 @@
 		12D27BFD213D8E89009D0D6F /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
 		12D27BFF213D8EC7009D0D6F /* TakeShotDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeShotDelegate.swift; sourceTree = "<group>"; };
 		12D27C01213D8EE5009D0D6F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		12D27C03213D9058009D0D6F /* EnterTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTextViewFactory.swift; sourceTree = "<group>"; };
 		12D640C6213D7D4E0064AA5C /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		12D640C8213D7D7D0064AA5C /* GameCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCellViewModel.swift; sourceTree = "<group>"; };
 		12E929BD2136CE9D00B04385 /* BowlingScoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +228,7 @@
 				12D23907213C622B00FE7CFE /* EnterTextViewModel.swift */,
 				12FD3C0B213C27FC000076EB /* EnterTextViewController.swift */,
 				12FD3C0D213C2822000076EB /* EnterTextViewController.storyboard */,
+				12D27C03213D9058009D0D6F /* EnterTextViewFactory.swift */,
 			);
 			path = EnterTextView;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				12D23903213C546300FE7CFE /* AppCoordinator.swift in Sources */,
 				12D27BFA213D8D38009D0D6F /* ProfileController.swift in Sources */,
 				12D27BF5213D8CC4009D0D6F /* UserProfile.swift in Sources */,
+				12D27C04213D9058009D0D6F /* EnterTextViewFactory.swift in Sources */,
 				12FD3C07213B4410000076EB /* FrameViewModel.swift in Sources */,
 				12FD3C02213B3E01000076EB /* FrameInfo.swift in Sources */,
 				12FD3BD1213AD692000076EB /* FramesCollectionViewController.swift in Sources */,
