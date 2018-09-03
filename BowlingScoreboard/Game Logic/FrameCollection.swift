@@ -37,10 +37,16 @@ final class FrameCollection: Equatable {
         var current: Node<FrameScore>? = head
         repeat {
             if let node = current {
+
+                var info: FrameInfo
+
                 if !foundCurrentFrame {
                     foundCurrentFrame = !node.value.frame.allNecessaryShotsTaken()
+                    info = FrameInfo(isCurrent: true, frame: node.value.frame, runningTotalScore: node.value.runningTotalScore)
+                } else {
+                    info = FrameInfo(isCurrent: false, frame: node.value.frame, runningTotalScore: node.value.runningTotalScore)
                 }
-                let info = FrameInfo(isCurrent: foundCurrentFrame, frame: node.value.frame, runningTotalScore: node.value.runningTotalScore)
+
                 frames.append(info)
             }
             current = current?.next

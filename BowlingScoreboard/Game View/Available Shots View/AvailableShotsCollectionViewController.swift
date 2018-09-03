@@ -42,14 +42,15 @@ final class AvailableShotsCollectionViewController: UICollectionViewController {
             fatalError("Collection view layout was not set to CenterCollectionViewFlowLayout")
         }
 
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor.themeDark
 
         let nib = UINib(nibName: "ShotCollectionViewCell", bundle: .main)
         collectionView.register(nib, forCellWithReuseIdentifier: shotCellReuseIdentifier)
 
-        collectionViewLayout.minimumInteritemSpacing = 15
-        collectionViewLayout.minimumLineSpacing = 15
-        collectionViewLayout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        collectionViewLayout.minimumInteritemSpacing = 8
+        collectionViewLayout.minimumLineSpacing = 8
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        collectionViewLayout.itemSize = CGSize(width: 40.0, height: 40.0)
     }
 
     // MARK: - UICollectionViewDataSource

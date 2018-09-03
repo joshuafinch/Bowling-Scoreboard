@@ -12,14 +12,20 @@ import UIKit
 final class FramesCollectionViewFlowLayout: UICollectionViewLayout {
 
     struct Constants {
-        static let itemSize: CGSize = CGSize(width: 55, height: 60)
-        static let itemSpacing: CGFloat = 4
-        static let lineSpacing: CGFloat = 4
+        static let itemSize: CGSize = CGSize(width: 50, height: 55)
+        static let itemSpacing: CGFloat = 2
+
+        static let frameHeaderSize: CGSize = CGSize(width: 50, height: 20)
+        static let frameHeaderKind: String = "frameHeaderKind"
+
+        static let lineSpacing: CGFloat = 0
+        static let sectionSpacing: CGFloat = 2
     }
 
     // MARK: - Properties
 
     private var attributeCache: [IndexPath: UICollectionViewLayoutAttributes] = [:]
+    private var supplementaryAttributeCache: [IndexPath: UICollectionViewLayoutAttributes] = [:]
     private var contentSize: CGSize = .zero
 
     // MARK: - UICollectionViewFlowLayout
@@ -30,6 +36,7 @@ final class FramesCollectionViewFlowLayout: UICollectionViewLayout {
 
     override func prepare() {
         attributeCache = [:]
+        supplementaryAttributeCache = [:]
         contentSize = calculateContentSize()
         super.prepare()
     }
@@ -50,8 +57,7 @@ final class FramesCollectionViewFlowLayout: UICollectionViewLayout {
 
                 let attributes = [
                     layoutAttributesForItem(at: indexPath),
-                    layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: indexPath),
-                    layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionFooter, at: indexPath)
+                    layoutAttributesForSupplementaryView(ofKind: Constants.frameHeaderKind, at: indexPath)
                     ]
                     .compactMap({ $0 })
                     .filter({
@@ -76,11 +82,36 @@ final class FramesCollectionViewFlowLayout: UICollectionViewLayout {
         frame.size.width = Constants.itemSize.width
         frame.size.height = Constants.itemSize.height
         frame.origin.x = (frame.width + Constants.itemSpacing) * CGFloat(indexPath.item)
-        frame.origin.y = (frame.height + Constants.lineSpacing) * CGFloat(indexPath.section)
+        frame.origin.y = ((frame.height + Constants.sectionSpacing) * CGFloat(indexPath.section)) + (Constants.frameHeaderSize.height * CGFloat(indexPath.section + 1))
         attributes.frame = frame
         attributeCache[attributes.indexPath] = attributes
 
         return attributeCache[indexPath]
+    }
+
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+
+        guard elementKind == Constants.frameHeaderKind else {
+            // Only support frameHeaderKinds in this layout
+            return nil
+        }
+
+        if let cachedAttributes = supplementaryAttributeCache[indexPath] {
+            return cachedAttributes
+        }
+
+        let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: elementKind, with: indexPath)
+
+        var frame = attributes.frame
+        frame.size.width = Constants.frameHeaderSize.width
+        frame.size.height = Constants.frameHeaderSize.height
+        frame.origin.x = (frame.width + Constants.itemSpacing) * CGFloat(indexPath.item)
+        frame.origin.y = (frame.height + Constants.itemSize.height + Constants.sectionSpacing) * CGFloat(indexPath.section)
+        attributes.frame = frame
+
+        supplementaryAttributeCache[attributes.indexPath] = attributes
+
+        return supplementaryAttributeCache[indexPath]
     }
 
     // MARK: - Private
@@ -105,7 +136,7 @@ final class FramesCollectionViewFlowLayout: UICollectionViewLayout {
         }
 
         let maxWidth = (Constants.itemSize.width + Constants.itemSpacing) * CGFloat(maxItems)
-        let maxHeight = (Constants.itemSize.height + Constants.lineSpacing) * CGFloat(numberOfSections)
+        let maxHeight = (Constants.itemSize.height + Constants.frameHeaderSize.height) * CGFloat(numberOfSections) + (Constants.sectionSpacing * CGFloat(numberOfSections - 1))
         return CGSize(width: maxWidth, height: maxHeight)
     }
 }

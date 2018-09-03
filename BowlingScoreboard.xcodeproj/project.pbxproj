@@ -35,6 +35,9 @@
 		12D27C00213D8EC7009D0D6F /* TakeShotDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D27BFF213D8EC7009D0D6F /* TakeShotDelegate.swift */; };
 		12D27C02213D8EE5009D0D6F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D27C01213D8EE5009D0D6F /* GameViewModel.swift */; };
 		12D27C04213D9058009D0D6F /* EnterTextViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D27C03213D9058009D0D6F /* EnterTextViewFactory.swift */; };
+		12D27C06213DA4CB009D0D6F /* FrameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D27C05213DA4CB009D0D6F /* FrameHeaderView.swift */; };
+		12D27C08213DA4E1009D0D6F /* FrameHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D27C07213DA4E1009D0D6F /* FrameHeaderView.xib */; };
+		12D27C0A213DBF88009D0D6F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D27C09213DBF88009D0D6F /* UIColor.swift */; };
 		12D640C7213D7D4E0064AA5C /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D640C6213D7D4E0064AA5C /* GameTableViewCell.swift */; };
 		12D640C9213D7D7D0064AA5C /* GameCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D640C8213D7D7D0064AA5C /* GameCellViewModel.swift */; };
 		12E929C12136CE9D00B04385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E929C02136CE9D00B04385 /* AppDelegate.swift */; };
@@ -115,6 +118,9 @@
 		12D27BFF213D8EC7009D0D6F /* TakeShotDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeShotDelegate.swift; sourceTree = "<group>"; };
 		12D27C01213D8EE5009D0D6F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		12D27C03213D9058009D0D6F /* EnterTextViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTextViewFactory.swift; sourceTree = "<group>"; };
+		12D27C05213DA4CB009D0D6F /* FrameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameHeaderView.swift; sourceTree = "<group>"; };
+		12D27C07213DA4E1009D0D6F /* FrameHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrameHeaderView.xib; sourceTree = "<group>"; };
+		12D27C09213DBF88009D0D6F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		12D640C6213D7D4E0064AA5C /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		12D640C8213D7D7D0064AA5C /* GameCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCellViewModel.swift; sourceTree = "<group>"; };
 		12E929BD2136CE9D00B04385 /* BowlingScoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +265,7 @@
 			children = (
 				12EE8FFE21382C5500F08F96 /* Log.swift */,
 				12C034F821370E8700EE22BB /* Node.swift */,
+				12D27C09213DBF88009D0D6F /* UIColor.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -367,6 +374,8 @@
 				12FD3BFB213B3E00000076EB /* FrameCollectionViewCell.swift */,
 				12FD3BFA213B3E00000076EB /* FrameCollectionViewCell.xib */,
 				12FD3BD0213AD692000076EB /* FramesCollectionViewController.swift */,
+				12D27C05213DA4CB009D0D6F /* FrameHeaderView.swift */,
+				12D27C07213DA4E1009D0D6F /* FrameHeaderView.xib */,
 				12FD3BF4213B2C0C000076EB /* FramesCollectionViewFlowLayout.swift */,
 			);
 			path = "Frames View";
@@ -506,6 +515,7 @@
 				12FD3BF3213B121E000076EB /* Game.storyboard in Resources */,
 				12E929CE2136CE9F00B04385 /* LaunchScreen.storyboard in Resources */,
 				12E929CB2136CE9F00B04385 /* Assets.xcassets in Resources */,
+				12D27C08213DA4E1009D0D6F /* FrameHeaderView.xib in Resources */,
 				12D2390D213C8A3600FE7CFE /* Games.storyboard in Resources */,
 				12FD3C00213B3E01000076EB /* FrameCollectionViewCell.xib in Resources */,
 				12FD3BF8213B3DF2000076EB /* ShotCollectionViewCell.xib in Resources */,
@@ -582,8 +592,10 @@
 				12C034F02136D60B00EE22BB /* Game.swift in Sources */,
 				12FD3BCE213AD652000076EB /* GameViewController.swift in Sources */,
 				12FD3C01213B3E01000076EB /* FrameCollectionViewCell.swift in Sources */,
+				12D27C0A213DBF88009D0D6F /* UIColor.swift in Sources */,
 				12D27BFC213D8E2D009D0D6F /* NicknameValidationError.swift in Sources */,
 				12D27BF3213D8C9E009D0D6F /* GameSettings.swift in Sources */,
+				12D27C06213DA4CB009D0D6F /* FrameHeaderView.swift in Sources */,
 				12FD3BBD213861A0000076EB /* FrameCollection.swift in Sources */,
 				12C0350321371A9800EE22BB /* Frame.swift in Sources */,
 				12D23912213D3C2800FE7CFE /* MainCoordinator.swift in Sources */,

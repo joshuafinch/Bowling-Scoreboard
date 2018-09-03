@@ -37,9 +37,7 @@ class CenterCollectionViewFlowLayout: UICollectionViewFlowLayout {
                 let indexPath = IndexPath(item: item, section: section)
 
                 let attributes = [
-                    layoutAttributesForItem(at: indexPath),
-                    layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: indexPath),
-                    layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionFooter, at: indexPath)
+                    layoutAttributesForItem(at: indexPath)
                  ]
                     .compactMap({ $0 })
                     .filter({

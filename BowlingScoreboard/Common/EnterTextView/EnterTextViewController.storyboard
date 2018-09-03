@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,42 +16,55 @@
             <objects>
                 <viewController id="u7P-T4-Pey" customClass="EnterTextViewController" customModule="BowlingScoreboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9HO-iu-NYi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your nickname?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kG-2I-38W">
-                                <rect key="frame" x="8" y="251" width="177.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your opponent's nickname?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kG-2I-38W">
+                                <rect key="frame" x="16" y="138.5" width="288" height="62.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" name="Theme/Light"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zyd-mq-xpL">
-                                <rect key="frame" x="8" y="279" width="304" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Joshua" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zyd-mq-xpL">
+                                <rect key="frame" x="16" y="221" width="288" height="27"/>
+                                <color key="textColor" name="Theme/Light"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Theme/Dark"/>
                         <constraints>
-                            <constraint firstItem="0a6-0b-PkB" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Zyd-mq-xpL" secondAttribute="bottom" constant="8" id="57Y-Sh-GGh"/>
-                            <constraint firstItem="Zyd-mq-xpL" firstAttribute="leading" secondItem="0a6-0b-PkB" secondAttribute="leading" constant="8" id="B5q-OC-cbS"/>
-                            <constraint firstItem="0a6-0b-PkB" firstAttribute="trailing" secondItem="Zyd-mq-xpL" secondAttribute="trailing" constant="8" id="LbS-jH-MyA"/>
-                            <constraint firstItem="Zyd-mq-xpL" firstAttribute="top" secondItem="7kG-2I-38W" secondAttribute="bottom" constant="8" symbolic="YES" id="Tg9-u7-D9t"/>
-                            <constraint firstItem="7kG-2I-38W" firstAttribute="leading" secondItem="0a6-0b-PkB" secondAttribute="leading" constant="8" id="YxO-53-yk2"/>
-                            <constraint firstItem="Zyd-mq-xpL" firstAttribute="centerY" secondItem="0a6-0b-PkB" secondAttribute="centerY" id="ZKA-2n-HVq"/>
+                            <constraint firstItem="0a6-0b-PkB" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Zyd-mq-xpL" secondAttribute="bottom" constant="256" id="57Y-Sh-GGh"/>
+                            <constraint firstItem="Zyd-mq-xpL" firstAttribute="leading" secondItem="0a6-0b-PkB" secondAttribute="leading" constant="16" id="B5q-OC-cbS"/>
+                            <constraint firstItem="0a6-0b-PkB" firstAttribute="trailing" secondItem="Zyd-mq-xpL" secondAttribute="trailing" constant="16" id="LbS-jH-MyA"/>
+                            <constraint firstItem="Zyd-mq-xpL" firstAttribute="top" secondItem="7kG-2I-38W" secondAttribute="bottom" constant="20" id="Tg9-u7-D9t"/>
+                            <constraint firstItem="7kG-2I-38W" firstAttribute="leading" secondItem="0a6-0b-PkB" secondAttribute="leading" constant="16" id="YxO-53-yk2"/>
+                            <constraint firstItem="Zyd-mq-xpL" firstAttribute="centerY" secondItem="0a6-0b-PkB" secondAttribute="centerY" priority="750" id="ZKA-2n-HVq"/>
+                            <constraint firstItem="0a6-0b-PkB" firstAttribute="trailing" secondItem="7kG-2I-38W" secondAttribute="trailing" constant="16" id="pJA-Bb-ecT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0a6-0b-PkB"/>
                     </view>
                     <navigationItem key="navigationItem" id="T6Q-MP-cc4"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="bottomConstraint" destination="57Y-Sh-GGh" id="AFB-R4-A5q"/>
                         <outlet property="label" destination="7kG-2I-38W" id="lJa-RS-oEB"/>
                         <outlet property="textField" destination="Zyd-mq-xpL" id="61f-o2-fxB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1S-fz-0Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-506" y="267"/>
+            <point key="canvasLocation" x="-506.25" y="266.19718309859155"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="Theme/Dark">
+            <color red="0.13725490196078433" green="0.14901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme/Light">
+            <color red="0.81960784313725488" green="0.85098039215686272" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <color key="tintColor" name="Theme/Tint"/>
 </document>

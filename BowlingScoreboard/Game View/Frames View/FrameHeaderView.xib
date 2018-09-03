@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lsz-MM-tpO" customClass="FrameHeaderView" customModule="BowlingScoreboard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edE-Wv-f5Y">
+                    <rect key="frame" x="30" y="0.0" width="15.5" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" name="Theme/Light"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" name="Theme/DarkAccent"/>
+            <constraints>
+                <constraint firstItem="edE-Wv-f5Y" firstAttribute="top" secondItem="T9k-At-x4H" secondAttribute="top" id="FXj-QD-iDB"/>
+                <constraint firstItem="edE-Wv-f5Y" firstAttribute="centerX" secondItem="T9k-At-x4H" secondAttribute="centerX" id="N7g-Ry-Pdi"/>
+                <constraint firstItem="T9k-At-x4H" firstAttribute="bottom" secondItem="edE-Wv-f5Y" secondAttribute="bottom" id="hfX-pJ-cnO"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="T9k-At-x4H"/>
+            <connections>
+                <outlet property="label" destination="edE-Wv-f5Y" id="FB3-5c-Vj8"/>
+            </connections>
+            <point key="canvasLocation" x="-268.5" y="5"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <namedColor name="Theme/DarkAccent">
+            <color red="0.33333333333333331" green="0.54509803921568623" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Theme/Light">
+            <color red="0.81960784313725488" green="0.85098039215686272" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

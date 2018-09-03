@@ -25,6 +25,8 @@ final class AppCoordinator {
         dataController = coreDataController
 
         window = UIWindow(frame: UIScreen.main.bounds)
+        window.tintColor = .themeTint
+        window.backgroundColor = .themeDark
 
         // We're using an empty state here, and waiting for core data to load before determining which views to load
         // In an actual production application we'd probably check the keychain for an accessToken to determine whether to show login / registration
@@ -58,7 +60,7 @@ final class AppCoordinator {
 
     private func emptyState() -> UIViewController {
         let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
+        viewController.view.backgroundColor = .themeDark
         return viewController
     }
 

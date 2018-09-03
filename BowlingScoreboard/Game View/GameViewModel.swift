@@ -26,8 +26,11 @@ class GameViewModel: GameDelegate, TakeShotDelegate {
 
     weak var framesCollectionViewHeightConstraint: NSLayoutConstraint? {
         didSet {
-            let heightPerPlayer = FramesCollectionViewFlowLayout.Constants.itemSize.height + FramesCollectionViewFlowLayout.Constants.lineSpacing
-            framesCollectionViewHeightConstraint?.constant = heightPerPlayer * CGFloat(game.players.count)
+            let heightPerPlayer = FramesCollectionViewFlowLayout.Constants.itemSize.height
+                + FramesCollectionViewFlowLayout.Constants.frameHeaderSize.height
+                + FramesCollectionViewFlowLayout.Constants.lineSpacing
+            framesCollectionViewHeightConstraint?.constant = heightPerPlayer * CGFloat(game.players.count) +
+                (FramesCollectionViewFlowLayout.Constants.sectionSpacing * CGFloat(game.players.count - 1))
         }
     }
 

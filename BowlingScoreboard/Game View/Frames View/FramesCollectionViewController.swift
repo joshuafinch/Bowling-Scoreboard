@@ -20,6 +20,7 @@ final class FramesCollectionViewController: UICollectionViewController {
     }
 
     private let frameCellReuseIdentifier = "twoShotFrameCellReuseIdentifier"
+    private let frameHeaderReuseIdentifer = "frameHeaderView"
 
     // MARK: - UIViewController
 
@@ -30,12 +31,16 @@ final class FramesCollectionViewController: UICollectionViewController {
             fatalError("Collection view was not set")
         }
 
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .themeDark
         collectionView.isPagingEnabled = false
         collectionView.bounces = false
         collectionView.showsHorizontalScrollIndicator = true
 
         collectionView.register(UINib(nibName: "FrameCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: frameCellReuseIdentifier)
+
+        collectionView.register(UINib(nibName: "FrameHeaderView", bundle: .main),
+                                forSupplementaryViewOfKind: FramesCollectionViewFlowLayout.Constants.frameHeaderKind,
+                                withReuseIdentifier: frameHeaderReuseIdentifer)
     }
 
     // MARK: - UICollectionViewDataSource
@@ -60,5 +65,19 @@ final class FramesCollectionViewController: UICollectionViewController {
         cell.configure(frame: frame)
 
         return cell
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        guard kind == FramesCollectionViewFlowLayout.Constants.frameHeaderKind else {
+            fatalError("Other supplementary views are not currently supported")
+        }
+
+        // swiftlint:disable:next force_cast
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: frameHeaderReuseIdentifer, for: indexPath) as! FrameHeaderView
+
+        view.configure(text: "F\(indexPath.item + 1)")
+
+        return view
     }
 }

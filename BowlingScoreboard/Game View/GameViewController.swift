@@ -12,6 +12,8 @@ final class GameViewController: UIViewController {
 
     var viewModel: GameViewModel?
 
+    @IBOutlet weak var playerOneLabel: UILabel!
+    @IBOutlet weak var playerTwoLabel: UILabel!
     @IBOutlet weak var framesCollectionViewHeightConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
