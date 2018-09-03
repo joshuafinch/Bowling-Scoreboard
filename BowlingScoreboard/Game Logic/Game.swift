@@ -117,14 +117,10 @@ final class Game {
         for player in players {
             let (frameIndex, frame) = player.frames.currentFrame()
 
-            if frameIndex == current.frameIndex {
-                if current.frame.allNecessaryShotsTaken() && !frame.allNecessaryShotsTaken() {
-                    current = (player, frameIndex, frame)
-                }
-            } else if frameIndex < current.frameIndex {
-                if (current.frame.shots.count > 0 && !current.frame.allNecessaryShotsTaken()) && !frame.allNecessaryShotsTaken() {
-                    current = (player, frameIndex, frame)
-                }
+            if current.frame.allNecessaryShotsTaken() {
+                current = (player, frameIndex, frame)
+            } else if frameIndex < current.frameIndex && !frame.allNecessaryShotsTaken() {
+                current = (player, frameIndex, frame)
             }
         }
 
