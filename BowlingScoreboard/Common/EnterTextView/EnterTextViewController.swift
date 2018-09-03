@@ -21,5 +21,7 @@ final class EnterTextViewController: UIViewController {
 
         viewModel.label = label
         viewModel.textField = textField
+
+        navigationItem.largeTitleDisplayMode = .never
     }
 }
