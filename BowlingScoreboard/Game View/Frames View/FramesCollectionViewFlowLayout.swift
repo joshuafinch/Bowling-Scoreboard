@@ -82,7 +82,8 @@ final class FramesCollectionViewFlowLayout: UICollectionViewLayout {
         frame.size.width = Constants.itemSize.width
         frame.size.height = Constants.itemSize.height
         frame.origin.x = (frame.width + Constants.itemSpacing) * CGFloat(indexPath.item)
-        frame.origin.y = ((frame.height + Constants.sectionSpacing) * CGFloat(indexPath.section)) + (Constants.frameHeaderSize.height * CGFloat(indexPath.section + 1))
+        frame.origin.y = ((frame.height + Constants.sectionSpacing) * CGFloat(indexPath.section))
+            + (Constants.frameHeaderSize.height * CGFloat(indexPath.section + 1))
         attributes.frame = frame
         attributeCache[attributes.indexPath] = attributes
 
@@ -136,7 +137,8 @@ final class FramesCollectionViewFlowLayout: UICollectionViewLayout {
         }
 
         let maxWidth = (Constants.itemSize.width + Constants.itemSpacing) * CGFloat(maxItems)
-        let maxHeight = (Constants.itemSize.height + Constants.frameHeaderSize.height) * CGFloat(numberOfSections) + (Constants.sectionSpacing * CGFloat(numberOfSections - 1))
+        let maxHeight = (Constants.itemSize.height + Constants.frameHeaderSize.height) * CGFloat(numberOfSections)
+            + (Constants.sectionSpacing * CGFloat(numberOfSections - 1))
         return CGSize(width: maxWidth, height: maxHeight)
     }
 }

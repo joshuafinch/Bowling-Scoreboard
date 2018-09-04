@@ -67,17 +67,19 @@ final class FramesCollectionViewController: UICollectionViewController {
         return cell
     }
 
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
 
         guard kind == FramesCollectionViewFlowLayout.Constants.frameHeaderKind else {
             fatalError("Other supplementary views are not currently supported")
         }
 
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                   withReuseIdentifier: frameHeaderReuseIdentifer, for: indexPath) as? FrameHeaderView
+
+        view?.configure(text: "F\(indexPath.item + 1)")
+
         // swiftlint:disable:next force_cast
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: frameHeaderReuseIdentifer, for: indexPath) as! FrameHeaderView
-
-        view.configure(text: "F\(indexPath.item + 1)")
-
-        return view
+        return view!
     }
 }
