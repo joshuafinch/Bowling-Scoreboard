@@ -5,9 +5,12 @@
 A mobile application for one or two players of 10 pin bowling to track their scores.
 
 <p align="center">
-  <img width=33% src="/Screenshots/1_Nickname_Portrait.png" />
-  <img width=33% src="/Screenshots/2_GamesList_Portrait.png" />
-  <img width=33% src="/Screenshots/4_GameInProgress_Portrait.png" />
+  <img width=35% src="/Screenshots/1_Nickname_Portrait.png" />
+  <img width=35% src="/Screenshots/2_GamesList_Portrait.png" />
+</p>
+
+<p align="center">
+  <img width=70% src="/Screenshots/4_GameInProgress_Landscape.png" />
 </p>
 
 ## Table of Contents
