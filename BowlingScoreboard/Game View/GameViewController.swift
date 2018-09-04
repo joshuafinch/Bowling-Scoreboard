@@ -14,11 +14,16 @@ final class GameViewController: UIViewController {
 
     @IBOutlet weak var playerOneLabel: UILabel!
     @IBOutlet weak var playerTwoLabel: UILabel!
+    @IBOutlet weak var turnToShootMessage: UILabel!
     @IBOutlet weak var framesCollectionViewHeightConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.framesCollectionViewHeightConstraint = framesCollectionViewHeightConstraint
+
+        viewModel?.playerOneLabel = playerOneLabel
+        viewModel?.playerTwoLabel = playerTwoLabel
+        viewModel?.turnToShootMessage = turnToShootMessage
 
         navigationItem.largeTitleDisplayMode = .never
     }

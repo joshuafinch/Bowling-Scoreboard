@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fiY-MS-10z">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -17,14 +18,14 @@
             <objects>
                 <viewController id="fiY-MS-10z" customClass="GameViewController" customModule="BowlingScoreboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Zg-4c-UI9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hgL-hE-TIg">
-                                <rect key="frame" x="0.0" y="84" width="320" height="464"/>
+                                <rect key="frame" x="0.0" y="42" width="568" height="278"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dyx-Jn-Cv2" userLabel="Frames Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="100"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FQA-23-o6S" userLabel="Player Names Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="100"/>
@@ -50,7 +51,7 @@
                                                 </constraints>
                                             </stackView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1O-zz-Y03" userLabel="Frames Container View">
-                                                <rect key="frame" x="68" y="0.0" width="252" height="100"/>
+                                                <rect key="frame" x="68" y="0.0" width="500" height="100"/>
                                                 <connections>
                                                     <segue destination="66a-Ye-nCY" kind="embed" id="Ff6-Il-WPf"/>
                                                 </connections>
@@ -60,10 +61,30 @@
                                             <constraint firstAttribute="height" constant="100" id="Yxl-R8-fUN"/>
                                         </constraints>
                                     </stackView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byP-vy-3fe" userLabel="Shots Container View">
-                                        <rect key="frame" x="0.0" y="344" width="320" height="120"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y62-z3-TRl">
+                                        <rect key="frame" x="0.0" y="124" width="568" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1's turn to shoot" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="2Pn-wy-hq7">
+                                                <rect key="frame" x="28.5" y="0.0" width="511" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="Theme/Light"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Theme/Dark"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="YaW-Kn-pjR"/>
+                                            <constraint firstItem="2Pn-wy-hq7" firstAttribute="width" secondItem="y62-z3-TRl" secondAttribute="width" multiplier="0.9" id="KTx-pF-l8f"/>
+                                            <constraint firstItem="2Pn-wy-hq7" firstAttribute="height" secondItem="y62-z3-TRl" secondAttribute="height" id="NnD-vk-Wdz"/>
+                                            <constraint firstItem="2Pn-wy-hq7" firstAttribute="centerY" secondItem="y62-z3-TRl" secondAttribute="centerY" id="ciy-wy-oJJ"/>
+                                            <constraint firstItem="2Pn-wy-hq7" firstAttribute="centerX" secondItem="y62-z3-TRl" secondAttribute="centerX" id="v7i-Bk-M9R"/>
+                                        </constraints>
+                                    </view>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byP-vy-3fe" userLabel="Shots Container View">
+                                        <rect key="frame" x="0.0" y="198" width="568" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="YaW-Kn-pjR">
+                                                <variation key="heightClass=compact" constant="80"/>
+                                            </constraint>
                                         </constraints>
                                         <connections>
                                             <segue destination="p0O-oA-bRG" kind="embed" id="26K-7h-NGP"/>
@@ -75,8 +96,8 @@
                         <color key="backgroundColor" name="Theme/Dark"/>
                         <constraints>
                             <constraint firstItem="AFG-id-q01" firstAttribute="trailing" secondItem="hgL-hE-TIg" secondAttribute="trailing" id="GOM-bP-U2i"/>
-                            <constraint firstItem="hgL-hE-TIg" firstAttribute="top" secondItem="AFG-id-q01" secondAttribute="top" constant="20" id="cpg-Cd-tSu"/>
-                            <constraint firstItem="AFG-id-q01" firstAttribute="bottom" secondItem="hgL-hE-TIg" secondAttribute="bottom" constant="20" id="rJY-RV-CAA"/>
+                            <constraint firstItem="hgL-hE-TIg" firstAttribute="top" secondItem="AFG-id-q01" secondAttribute="top" constant="10" id="cpg-Cd-tSu"/>
+                            <constraint firstItem="AFG-id-q01" firstAttribute="bottom" secondItem="hgL-hE-TIg" secondAttribute="bottom" id="rJY-RV-CAA"/>
                             <constraint firstItem="hgL-hE-TIg" firstAttribute="leading" secondItem="AFG-id-q01" secondAttribute="leading" id="xTU-EN-9Vg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AFG-id-q01"/>
@@ -87,6 +108,7 @@
                         <outlet property="framesCollectionViewHeightConstraint" destination="Yxl-R8-fUN" id="nBM-VN-YRF"/>
                         <outlet property="playerOneLabel" destination="uMh-zk-qYN" id="ZJR-un-9ij"/>
                         <outlet property="playerTwoLabel" destination="mZr-1S-OIl" id="NNr-tN-3ez"/>
+                        <outlet property="turnToShootMessage" destination="2Pn-wy-hq7" id="V52-Fl-232"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dww-n3-MEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,7 +141,7 @@
             <objects>
                 <collectionViewController id="p0O-oA-bRG" customClass="AvailableShotsCollectionViewController" customModule="BowlingScoreboard" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="x4x-SK-nid">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewLayout key="collectionViewLayout" id="dSU-gj-Xur" customClass="CenterCollectionViewFlowLayout" customModule="BowlingScoreboard" customModuleProvider="target"/>

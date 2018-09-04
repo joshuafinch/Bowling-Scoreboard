@@ -11,6 +11,24 @@ import os
 
 class GameViewModel: GameDelegate, TakeShotDelegate {
 
+    var playerOneLabel: UILabel? {
+        didSet {
+            updatePlayerOneLabel()
+        }
+    }
+
+    var playerTwoLabel: UILabel? {
+        didSet {
+            updatePlayerTwoLabel()
+        }
+    }
+
+    var turnToShootMessage: UILabel? {
+        didSet {
+            updateTurnToShootMessage()
+        }
+    }
+
     var framesCollectionViewController: FramesCollectionViewController? {
         didSet {
             updateFrames()
@@ -50,11 +68,11 @@ class GameViewModel: GameDelegate, TakeShotDelegate {
     // MARK: - GameDelegate
 
     func currentPlayerDidChange() {
-        // TODO: Indicate the current player that's taking a shot
+        updateTurnToShootMessage()
     }
 
     func gameFinished() {
-        // TODO: Hide available shots input, show game finished / winner message, some fanfare and an animation
+        updateTurnToShootMessage()
     }
 
     func availableShotsDidChange(toShots shots: [Shot]) {
@@ -79,6 +97,36 @@ class GameViewModel: GameDelegate, TakeShotDelegate {
     }
 
     // MARK: - Private
+
+    private func updatePlayerOneLabel() {
+        guard !game.players.isEmpty else {
+            playerOneLabel?.text = nil
+            return
+        }
+        playerOneLabel?.text = game.players[0].player.name
+    }
+
+    private func updatePlayerTwoLabel() {
+        guard game.players.count > 1 else {
+            playerTwoLabel?.text = nil
+            return
+        }
+        playerTwoLabel?.text = game.players[1].player.name
+    }
+
+    private func updateTurnToShootMessage() {
+        if let winner = game.winner() {
+
+            switch winner {
+            case .player(let player, let score):
+                turnToShootMessage?.text = "\(player.name) won the game with a score of \(score)"
+            case .draw(let score):
+                turnToShootMessage?.text = "The game resulted in a draw with a score of \(score)"
+            }
+        } else {
+            turnToShootMessage?.text = "\(game.currentPlayer.player.name)'s turn to shoot"
+        }
+    }
 
     private func updateFrames(usingPlayerFrames playerFrames: [PlayerFrames]? = nil) {
         framesCollectionViewController?.playerFrames = (playerFrames ?? game.players).map({

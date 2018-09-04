@@ -60,6 +60,30 @@ final class Game {
         return !players.contains { !$0.frames.allNecessaryShotsTaken() }
     }
 
+    enum Winner {
+        case player(Player, Int)
+        case draw(Int)
+    }
+
+    func winner() -> Winner? {
+        guard isComplete() else {
+            return nil
+        }
+
+        let playerTotals = zip(players, players.map({ $0.frames.runningTotalScore() }))
+        let sortedPlayerTotals = playerTotals.sorted {
+            $0.1 > $1.1
+        }
+
+        if sortedPlayerTotals.count > 1 {
+            if sortedPlayerTotals[0].1 == sortedPlayerTotals[1].1 {
+                return .draw(sortedPlayerTotals[0].1)
+            }
+        }
+
+        return .player(sortedPlayerTotals[0].0.player, sortedPlayerTotals[0].1)
+    }
+
     func take(shot: Shot) throws {
         checkCurrentPlayer()
         try currentPlayer.frames.take(shot: shot)
